@@ -30,8 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_iconly: ^1.0.2
   flutter_native_splash: ^2.2.2
-  font_awesome_flutter: ^10.1.0
   just_audio: ^0.9.24
   just_audio_web: ^0.4.7
   provider: ^6.0.3
@@ -41,10 +41,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 flutter:
 
-  
   assets:
     - assets/
   uses-material-design: true
@@ -59,4 +57,3 @@ flutter:
           weight: 500
         - asset: assets/Roboto-Bold.ttf
           weight: 700
-  
