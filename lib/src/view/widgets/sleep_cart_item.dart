@@ -8,7 +8,7 @@ class SleepCardItem extends StatelessWidget {
     required this.image,
     required this.label,
     required this.subtitle,
-    this.onTap,
+    required this.onTap,
   }) : super(key: key);
 
   final String image;

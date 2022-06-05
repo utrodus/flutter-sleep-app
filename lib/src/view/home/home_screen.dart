@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sleep/src/themes.dart';
+import 'package:sleep/src/view/details/detail_screen.dart';
 
 import '../widgets/icon_menu.dart';
 import '../widgets/sleep_cart_item.dart';
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fit: BoxFit.cover,
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 50, 0, 20),
+                    padding: const EdgeInsets.fromLTRB(0, 60, 0, 20),
                     child: Column(
                       children: [
                         Center(
@@ -62,33 +63,39 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           padding: const EdgeInsets.fromLTRB(10, 25, 20, 0),
                           child: Row(
-                            children: const [
+                            children: [
                               IconMenu(
+                                onTap: () {},
                                 icon: "assets/icon_menu_all.png",
                                 label: "All",
                                 isSelected: true,
                               ),
                               IconMenu(
+                                onTap: () {},
                                 icon: "assets/icon_menu_favorite.png",
                                 label: "My",
                                 isSelected: false,
                               ),
                               IconMenu(
+                                onTap: () {},
                                 icon: "assets/icon_menu_sleep.png",
                                 label: "Stories",
                                 isSelected: false,
                               ),
                               IconMenu(
+                                onTap: () {},
                                 icon: "assets/icon_menu_music.png",
                                 label: "Music",
                                 isSelected: false,
                               ),
                               IconMenu(
+                                onTap: () {},
                                 icon: "assets/icon_menu_anxious.png",
                                 label: "Anxious",
                                 isSelected: false,
                               ),
                               IconMenu(
+                                onTap: () {},
                                 icon: "assets/icon_menu_kids.png",
                                 label: "Kids",
                                 isSelected: false,
@@ -101,21 +108,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                            child: FadeInImage.assetNetwork(
-                              placeholder: "assets/image_placeholder.jpg",
-                              height: screenHeight * 0.3,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                              image:
-                                  "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
-                              imageErrorBuilder: (c, o, s) => Image.asset(
-                                "assets/image_placeholder.jpg",
-                                height: 100,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return const DetailScreen();
+                              }));
+                            },
+                            child: Hero(
+                              transitionOnUserGestures: true,
+                              tag: "detail_img",
+                              child: ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                                child: FadeInImage.assetNetwork(
+                                  placeholder: "assets/image_placeholder.jpg",
+                                  height: screenHeight * 0.3,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                  image:
+                                      "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
+                                  imageErrorBuilder: (c, o, s) => Image.asset(
+                                    "assets/image_placeholder.jpg",
+                                    height: 100,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -130,7 +149,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: 8,
                             itemBuilder: (context, i) {
-                              return const SleepCardItem(
+                              return SleepCardItem(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return const DetailScreen();
+                                  }));
+                                },
                                 image:
                                     "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
                                 label: "Harus Menikah",

@@ -8,19 +8,20 @@ class IconMenu extends StatelessWidget {
     required this.label,
     required this.isSelected,
     required this.icon,
+    required this.onTap,
   }) : super(key: key);
 
   final String label;
   final bool isSelected;
   final String icon;
-
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: InkWell(
           splashColor: Colors.transparent,
-          onTap: () {},
+          onTap: onTap,
           child: Column(
             children: [
               Container(
