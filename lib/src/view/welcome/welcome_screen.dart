@@ -71,10 +71,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       )),
                     ),
                     onPressed: () {
-                      Navigator.push(context,
+                      Navigator.pushAndRemoveUntil(context,
                           MaterialPageRoute(builder: (context) {
                         return const HomeScreen();
-                      }));
+                      }), (route) => false);
                     },
                     child: Text(
                       "GET STARTED",
