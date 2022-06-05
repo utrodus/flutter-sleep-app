@@ -108,34 +108,37 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: InkWell(
-                            splashFactory: NoSplash.splashFactory,
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const DetailScreen(
-                                  heroTagName: "feature_img",
-                                );
-                              }));
-                            },
-                            child: Hero(
-                              transitionOnUserGestures: true,
-                              tag: "feature_img",
-                              child: ClipRRect(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(10)),
-                                child: FadeInImage.assetNetwork(
-                                  placeholder: "assets/image_placeholder.jpg",
-                                  height: screenHeight * 0.3,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                  image:
-                                      "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
-                                  imageErrorBuilder: (c, o, s) => Image.asset(
-                                    "assets/image_placeholder.jpg",
-                                    height: 100,
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              splashFactory: NoSplash.splashFactory,
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const DetailScreen(
+                                    heroTagName: "feature_img",
+                                  );
+                                }));
+                              },
+                              child: Hero(
+                                transitionOnUserGestures: true,
+                                tag: "feature_img",
+                                child: ClipRRect(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                  child: FadeInImage.assetNetwork(
+                                    placeholder: "assets/image_placeholder.jpg",
+                                    height: screenHeight * 0.3,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
+                                    image:
+                                        "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
+                                    imageErrorBuilder: (c, o, s) => Image.asset(
+                                      "assets/image_placeholder.jpg",
+                                      height: 100,
+                                      width: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -157,6 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Material(
                                   color: Colors.transparent,
                                   child: InkWell(
+                                    splashFactory: NoSplash.splashFactory,
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
