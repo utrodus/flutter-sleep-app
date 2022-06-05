@@ -12,37 +12,6 @@ class DetailScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Material(
-            borderRadius: const BorderRadius.all(Radius.circular(28)),
-            color: kSecondaryColor,
-            child: InkWell(
-              borderRadius: const BorderRadius.all(Radius.circular(28)),
-              onTap: () {},
-              child: Container(
-                  alignment: Alignment.center,
-                  width: double.infinity,
-                  height: screenHeight * 0.08,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "PLAY",
-                        style: TextStyle(
-                          color: kWhiteColor,
-                          fontWeight: bold,
-                          fontSize: 16,
-                          letterSpacing: 1,
-                        ),
-                      ),
-                    ],
-                  )),
-            ),
-          ),
-        ),
         backgroundColor: kPrimaryColor,
         body: SingleChildScrollView(
             child: LayoutBuilder(builder: (context, constraints) {
@@ -78,57 +47,78 @@ class DetailScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: kWhiteColor.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(100),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 20, 15, 0),
+                        child: Material(
+                          color: kWhiteColor,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(100)),
+                          child: InkWell(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(100)),
+                            onTap: () {},
+                            child: Container(
+                              padding: const EdgeInsets.all(5),
+                              child: IconButton(
+                                  alignment: Alignment.center,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: const Icon(
+                                    IconlyLight.arrowLeft,
+                                    color: kPrimaryColor,
+                                  )),
+                            ),
+                          ),
                         ),
-                        child: IconButton(
-                            alignment: Alignment.center,
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: const Icon(
-                              IconlyLight.arrowLeft,
-                              color: kPrimaryColor,
-                            )),
                       ),
                       Row(
                         children: [
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 20, 15, 0),
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 20, 15, 0),
+                            child: Material(
                               color: Colors.black.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(100),
+                              child: InkWell(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(100)),
+                                onTap: () {},
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding: const EdgeInsets.all(5),
+                                  child: IconButton(
+                                      alignment: Alignment.center,
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        IconlyLight.heart,
+                                        color: kWhiteColor,
+                                      )),
+                                ),
+                              ),
                             ),
-                            child: IconButton(
-                                alignment: Alignment.center,
-                                onPressed: () {},
-                                icon: const Icon(
-                                  IconlyLight.heart,
-                                  color: kWhiteColor,
-                                )),
                           ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 20, 15, 0),
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 20, 15, 0),
+                            child: Material(
                               color: Colors.black.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(100),
+                              child: InkWell(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(100)),
+                                onTap: () {},
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding: const EdgeInsets.all(5),
+                                  child: IconButton(
+                                      alignment: Alignment.center,
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        IconlyLight.download,
+                                        color: kWhiteColor,
+                                      )),
+                                ),
+                              ),
                             ),
-                            child: IconButton(
-                                alignment: Alignment.center,
-                                onPressed: () {},
-                                icon: const Icon(
-                                  IconlyLight.download,
-                                  color: kWhiteColor,
-                                )),
                           ),
                         ],
                       ),
@@ -176,7 +166,7 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         const Icon(IconlyBold.heart,
                             size: 18, color: kprimaryTextColor),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           "24.234 Favorits",
                           style: TextStyle(
@@ -186,13 +176,13 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 49),
+                    const SizedBox(width: 49),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Icon(IconlyBold.play,
                             size: 18, color: kprimaryTextColor),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           "34.234 Listening",
                           style: TextStyle(
@@ -205,9 +195,9 @@ class DetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 height: 0.5,
                 width: double.infinity,
                 color: kMediumPurpleTextColor,
@@ -248,10 +238,41 @@ class DetailScreen extends StatelessWidget {
                       mainAxisSpacing: 3),
                 ),
               ),
-              SizedBox(height: 80),
+              const SizedBox(height: 80),
             ],
           );
         })),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Material(
+            borderRadius: const BorderRadius.all(Radius.circular(28)),
+            color: kSecondaryColor,
+            child: InkWell(
+              borderRadius: const BorderRadius.all(Radius.circular(28)),
+              onTap: () {},
+              child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  height: screenHeight * 0.08,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "PLAY",
+                        style: TextStyle(
+                          color: kWhiteColor,
+                          fontWeight: bold,
+                          fontSize: 16,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          ),
+        ),
       ),
     );
   }
