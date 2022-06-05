@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:sleep/src/themes.dart';
 import 'package:sleep/src/view/details/detail_screen.dart';
 
@@ -61,46 +62,59 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
                           padding: const EdgeInsets.fromLTRB(10, 25, 20, 0),
-                          child: Row(
-                            children: [
-                              IconMenu(
-                                onTap: () {},
-                                icon: "assets/icon_menu_all.png",
-                                label: "All",
-                                isSelected: true,
+                          child: AnimationLimiter(
+                            child: Row(
+                              children: AnimationConfiguration.toStaggeredList(
+                                duration: const Duration(milliseconds: 375),
+                                childAnimationBuilder: (widget) =>
+                                    SlideAnimation(
+                                  horizontalOffset: 50.0,
+                                  child: FadeInAnimation(
+                                    child: widget,
+                                  ),
+                                ),
+                                children: [
+                                  IconMenu(
+                                    onTap: () {},
+                                    icon: "assets/icon_menu_all.png",
+                                    label: "All",
+                                    isSelected: true,
+                                  ),
+                                  IconMenu(
+                                    onTap: () {},
+                                    icon: "assets/icon_menu_favorite.png",
+                                    label: "My",
+                                    isSelected: false,
+                                  ),
+                                  IconMenu(
+                                    onTap: () {},
+                                    icon: "assets/icon_menu_sleep.png",
+                                    label: "Stories",
+                                    isSelected: false,
+                                  ),
+                                  IconMenu(
+                                    onTap: () {},
+                                    icon: "assets/icon_menu_music.png",
+                                    label: "Music",
+                                    isSelected: false,
+                                  ),
+                                  IconMenu(
+                                    onTap: () {},
+                                    icon: "assets/icon_menu_anxious.png",
+                                    label: "Anxious",
+                                    isSelected: false,
+                                  ),
+                                  IconMenu(
+                                    onTap: () {},
+                                    icon: "assets/icon_menu_kids.png",
+                                    label: "Kids",
+                                    isSelected: false,
+                                  ),
+                                ],
                               ),
-                              IconMenu(
-                                onTap: () {},
-                                icon: "assets/icon_menu_favorite.png",
-                                label: "My",
-                                isSelected: false,
-                              ),
-                              IconMenu(
-                                onTap: () {},
-                                icon: "assets/icon_menu_sleep.png",
-                                label: "Stories",
-                                isSelected: false,
-                              ),
-                              IconMenu(
-                                onTap: () {},
-                                icon: "assets/icon_menu_music.png",
-                                label: "Music",
-                                isSelected: false,
-                              ),
-                              IconMenu(
-                                onTap: () {},
-                                icon: "assets/icon_menu_anxious.png",
-                                label: "Anxious",
-                                isSelected: false,
-                              ),
-                              IconMenu(
-                                onTap: () {},
-                                icon: "assets/icon_menu_kids.png",
-                                label: "Kids",
-                                isSelected: false,
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -144,32 +158,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          child: GridView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: 8,
-                            itemBuilder: (context, i) {
-                              return SleepCardItem(
-                                onTap: () {
-                                  Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    return const DetailScreen();
-                                  }));
-                                },
-                                image:
-                                    "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
-                                label: "Harus Menikah",
-                                subtitle: "45 Min | Sleep Stories",
-                              );
-                            },
-                            padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        constraints.maxWidth > 700 ? 4 : 2,
-                                    childAspectRatio: 1.05,
-                                    crossAxisSpacing: 10,
-                                    mainAxisSpacing: 3),
+                          child: AnimationLimiter(
+                            child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: 8,
+                              itemBuilder: (context, i) {
+                                return AnimationConfiguration.staggeredList(
+                                  position: i,
+                                  child: SlideAnimation(
+                                      child: SleepCardItem(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return const DetailScreen();
+                                      }));
+                                    },
+                                    image:
+                                        "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
+                                    label: "Harus Menikah",
+                                    subtitle: "45 Min | Sleep Stories",
+                                  )),
+                                );
+                              },
+                              padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount:
+                                          constraints.maxWidth > 700 ? 4 : 2,
+                                      childAspectRatio: 1.05,
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 3),
+                            ),
                           ),
                         )
                       ],
