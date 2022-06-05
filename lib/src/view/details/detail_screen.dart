@@ -5,8 +5,8 @@ import 'package:sleep/src/themes.dart';
 import '../widgets/sleep_card_item.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
-
+  const DetailScreen({Key? key, required this.heroTagName}) : super(key: key);
+  final String heroTagName;
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -22,7 +22,7 @@ class DetailScreen extends StatelessWidget {
                 children: [
                   Hero(
                     transitionOnUserGestures: true,
-                    tag: "detail_img",
+                    tag: heroTagName,
                     child: ClipRRect(
                       borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(10),
@@ -210,34 +210,39 @@ class DetailScreen extends StatelessWidget {
                       fontWeight: bold, fontSize: 20, color: kprimaryTextColor),
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 4,
-                  itemBuilder: (context, i) {
-                    return SleepCardItem(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const DetailScreen();
-                        }));
-                      },
-                      image:
-                          "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
-                      label: "Harus Menikah",
-                      subtitle: "45 Min | Sleep Stories",
-                    );
-                  },
-                  padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: constraints.maxWidth > 700 ? 4 : 2,
-                      childAspectRatio: 1.05,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 3),
-                ),
-              ),
+              // Container(
+              //   alignment: Alignment.center,
+              //   child: GridView.builder(
+              //     shrinkWrap: true,
+              //     physics: const NeverScrollableScrollPhysics(),
+              //     itemCount: 4,
+              //     itemBuilder: (context, i) {
+              //       return Hero(
+              //         tag: "detail_img_${i.toString()}",
+              //         child: SleepCardItem(
+              //           onTap: () {
+              //             Navigator.push(context,
+              //                 MaterialPageRoute(builder: (context) {
+              //               return DetailScreen(
+              //                 heroTagName: "detail_img_${i.toString()}",
+              //               );
+              //             }));
+              //           },
+              //           image:
+              //               "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
+              //           label: "Harus Menikah",
+              //           subtitle: "45 Min | Sleep Stories",
+              //         ),
+              //       );
+              //     },
+              //     padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
+              //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //         crossAxisCount: constraints.maxWidth > 700 ? 4 : 2,
+              //         childAspectRatio: 1.05,
+              //         crossAxisSpacing: 10,
+              //         mainAxisSpacing: 3),
+              //   ),
+              // ),
               const SizedBox(height: 80),
             ],
           );
