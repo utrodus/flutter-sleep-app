@@ -3,7 +3,7 @@ import 'package:sleep/src/themes.dart';
 import 'package:sleep/src/view/details/detail_screen.dart';
 
 import '../widgets/icon_menu.dart';
-import '../widgets/sleep_cart_item.dart';
+import '../widgets/sleep_card_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

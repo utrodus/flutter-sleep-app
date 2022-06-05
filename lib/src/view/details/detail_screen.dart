@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:sleep/src/themes.dart';
 
-import '../widgets/sleep_cart_item.dart';
+import '../widgets/sleep_card_item.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
