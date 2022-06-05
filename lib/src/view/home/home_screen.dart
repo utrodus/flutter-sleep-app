@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Stack(
+                alignment: Alignment.topCenter,
                 children: [
                   const Image(
                     image: AssetImage("assets/image_bg_home.png"),
@@ -92,25 +93,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 25,
                         ),
-                        // Padding(
-                        //   padding: const EdgeInsets.symmetric(horizontal: 15),
-                        //   child: InkWell(
-                        //     onTap: () {},
-                        //     child: Container(
-                        //       width: double.infinity,
-                        //       decoration: BoxDecoration(
-                        //           image: const DecorationImage(
-                        //             image: AssetImage(
-                        //                 "assets/image_akudansepi.jpg"),
-                        //             fit: BoxFit.cover,
-                        //             alignment: Alignment.center,
-                        //           ),
-                        //           borderRadius: BorderRadius.circular(12)),
-                        //       height: screenHeight * 0.3,
-                        //       alignment: Alignment.center,
-                        //     ),
-                        //   ),
-                        // ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: ClipRRect(
@@ -135,26 +117,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 25,
                         ),
-                        GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 8,
-                          itemBuilder: (context, i) {
-                            return const SleepCardItem(
-                              image:
-                                  "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
-                              label: "Harus Menikah",
-                              subtitle: "45 Min | Sleep Stories",
-                            );
-                          },
-                          padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount:
-                                      constraints.maxWidth > 700 ? 4 : 2,
-                                  childAspectRatio: 1.05,
-                                  crossAxisSpacing: 5,
-                                  mainAxisSpacing: 0),
+                        Container(
+                          alignment: Alignment.center,
+                          child: GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 8,
+                            itemBuilder: (context, i) {
+                              return const SleepCardItem(
+                                image:
+                                    "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
+                                label: "Harus Menikah",
+                                subtitle: "45 Min | Sleep Stories",
+                              );
+                            },
+                            padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount:
+                                        constraints.maxWidth > 700 ? 4 : 2,
+                                    childAspectRatio: 1.05,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 3),
+                          ),
                         )
                       ],
                     ),
@@ -210,7 +195,7 @@ class SleepCardItem extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -225,7 +210,7 @@ class SleepCardItem extends StatelessWidget {
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
-                        const SizedBox(height: 3),
+                        const SizedBox(height: 5),
                         Text(
                           subtitle,
                           maxLines: 1,
