@@ -21,6 +21,7 @@ class IconMenu extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: InkWell(
           splashColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory,
           onTap: onTap,
           child: Column(
             children: [
