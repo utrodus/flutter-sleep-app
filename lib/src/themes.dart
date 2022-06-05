@@ -72,7 +72,11 @@ class AppThemes {
     ),
 
     textTheme: TextTheme(
-      headline1: primaryTextStyle,
+      headline1: TextStyle(
+        fontSize: 24,
+        fontWeight: bold,
+        color: kWhiteColor,
+      ),
       headline2: TextStyle(
         fontSize: 24,
         fontWeight: regular,
@@ -109,13 +113,13 @@ class AppThemes {
         color: kWhiteColor,
       ),
       bodyText1: TextStyle(
-        fontSize: 14,
+        fontSize: 15,
         fontWeight: regular,
         color: kSecondaryTextColor,
       ),
       bodyText2: TextStyle(
-        fontSize: 12,
-        fontWeight: regular,
+        fontSize: 14,
+        fontWeight: light,
         color: kSecondaryTextColor,
       ),
       button: TextStyle(

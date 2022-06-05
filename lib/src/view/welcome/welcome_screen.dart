@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sleep/src/themes.dart';
+import 'package:sleep/src/view/home/home_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -69,7 +70,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         borderRadius: BorderRadius.circular(12.0),
                       )),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const HomeScreen();
+                      }));
+                    },
                     child: Text(
                       "GET STARTED",
                       style: Theme.of(context).textTheme.headline6,
