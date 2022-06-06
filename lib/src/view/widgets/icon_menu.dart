@@ -17,8 +17,11 @@ class IconMenu extends StatelessWidget {
   final Function()? onTap;
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: screenWidth < 992
+          ? const EdgeInsets.symmetric(horizontal: 10)
+          : const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       child: InkWell(
           splashColor: Colors.transparent,
           splashFactory: NoSplash.splashFactory,

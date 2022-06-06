@@ -21,51 +21,49 @@ class SleepCardItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              child: FadeInImage.assetNetwork(
-                placeholder: "assets/image_placeholder.jpg",
-                height: 110,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                image: image,
-                imageErrorBuilder: (c, o, s) => Image.asset(
-                  "assets/image_placeholder.jpg",
-                  height: 100,
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                child: FadeInImage.assetNetwork(
+                  placeholder: "assets/image_placeholder.jpg",
                   width: double.infinity,
                   fit: BoxFit.cover,
+                  image: image,
+                  imageErrorBuilder: (c, o, s) => Image.asset(
+                    "assets/image_placeholder.jpg",
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 10),
-                      Text(
-                        label,
-                        maxLines: 1,
-                        style: TextStyle(
-                          fontWeight: bold,
-                          fontSize: 14,
-                        ),
-                        overflow: TextOverflow.ellipsis,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 10),
+                    Text(
+                      label,
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontWeight: bold,
+                        fontSize: 14,
                       ),
-                      const SizedBox(height: 5),
-                      Text(
-                        subtitle,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: mediumBrownTextStyle.copyWith(
-                          fontWeight: medium,
-                          fontSize: 11,
-                        ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      subtitle,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: mediumBrownTextStyle.copyWith(
+                        fontWeight: medium,
+                        fontSize: 11,
                       ),
-                    ]),
-              ),
+                    ),
+                  ]),
             ),
           ]),
     );
