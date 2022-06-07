@@ -56,14 +56,19 @@ Scaffold welcomeDesktop(BuildContext context, double screenWidth) {
                     const SizedBox(
                       height: 30,
                     ),
-                    PrimaryBtn(
-                      label: "GET STARTED",
-                      onPressed: () {
-                        Navigator.pushAndRemoveUntil(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const HomeScreen();
-                        }), (route) => false);
-                      },
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50,
+                      ),
+                      child: PrimaryBtn(
+                        label: "GET STARTED",
+                        onPressed: () {
+                          Navigator.pushAndRemoveUntil(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const HomeScreen();
+                          }), (route) => false);
+                        },
+                      ),
                     )
                   ],
                 ),

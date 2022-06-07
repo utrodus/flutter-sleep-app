@@ -28,7 +28,7 @@ Scaffold welcomeTablet(BuildContext context, double screenWidth) {
                   "Welcome to Sleep",
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                       fontSize:
-                          Responsive.isTabletLandscape(context) ? 30 : 28),
+                          Responsive.isTabletLandscape(context) ? 26 : 24),
                 ),
               ),
               Padding(
@@ -41,7 +41,7 @@ Scaffold welcomeTablet(BuildContext context, double screenWidth) {
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           height: 1.8,
                           fontSize:
-                              Responsive.isTabletLandscape(context) ? 24 : 18,
+                              Responsive.isTabletLandscape(context) ? 22 : 18,
                         ),
                     textAlign: TextAlign.center,
                   ),

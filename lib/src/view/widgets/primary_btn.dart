@@ -14,13 +14,8 @@ class PrimaryBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.height;
     return Container(
-      margin: EdgeInsets.symmetric(
-          horizontal: Responsive.isDesktop(context) ||
-                  Responsive.isLargeDesktop(context)
-              ? 45
-              : 60),
       color: Colors.transparent,
-      width: screenWidth * 0.7,
+      width: screenWidth * 0.4,
       child: ElevatedButton(
         style: ButtonStyle(
           padding: MaterialStateProperty.all(EdgeInsets.symmetric(

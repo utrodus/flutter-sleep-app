@@ -8,6 +8,7 @@ Scaffold welcomeMobile(BuildContext context, double screenWidth) {
   return Scaffold(
       backgroundColor: kPrimaryColor,
       body: Container(
+        alignment: Alignment.center,
         height: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
@@ -18,6 +19,8 @@ Scaffold welcomeMobile(BuildContext context, double screenWidth) {
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 50),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
                 child: Text(
@@ -51,14 +54,17 @@ Scaffold welcomeMobile(BuildContext context, double screenWidth) {
               const SizedBox(
                 height: 80,
               ),
-              PrimaryBtn(
-                label: "GET STARTED",
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(context,
-                      MaterialPageRoute(builder: (context) {
-                    return const HomeScreen();
-                  }), (route) => false);
-                },
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: PrimaryBtn(
+                  label: "GET STARTED",
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const HomeScreen();
+                    }), (route) => false);
+                  },
+                ),
               )
             ],
           ),
