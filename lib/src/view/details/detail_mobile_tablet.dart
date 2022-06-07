@@ -195,6 +195,24 @@ Scaffold detailMobileTabletScreen(BoxConstraints constraints,
             ],
           ),
         ),
+        Center(
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              primary: kSecondaryColor,
+              padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.38, vertical: 25),
+              textStyle: const TextStyle(
+                  fontSize: 16,
+                  letterSpacing: 1,
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.bold),
+            ),
+            child: const Text(
+              "PLAY",
+            ),
+          ),
+        ),
         const SizedBox(height: 20),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -249,70 +267,5 @@ Scaffold detailMobileTabletScreen(BoxConstraints constraints,
         SizedBox(height: constraints.maxWidth > 600 ? 10 : 80),
       ],
     )),
-    floatingActionButtonLocation: constraints.maxWidth > 600
-        ? FloatingActionButtonLocation.endFloat
-        : FloatingActionButtonLocation.centerFloat,
-    floatingActionButton: constraints.maxWidth > 600
-        ? Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: 20, vertical: constraints.maxWidth > 600 ? 20 : 5),
-            child: Material(
-              borderRadius: const BorderRadius.all(Radius.circular(28)),
-              color: kSecondaryColor,
-              child: InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(28)),
-                onTap: () {},
-                child: Container(
-                    alignment: Alignment.center,
-                    width: screenWidth * 0.3,
-                    height: screenHeight * 0.07,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "PLAY",
-                          style: TextStyle(
-                            color: kWhiteColor,
-                            fontWeight: bold,
-                            fontSize: 16,
-                            letterSpacing: 1,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            ),
-          )
-        : Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Material(
-              borderRadius: const BorderRadius.all(Radius.circular(28)),
-              color: kSecondaryColor,
-              child: InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(28)),
-                onTap: () {},
-                child: Container(
-                    alignment: Alignment.center,
-                    width: double.infinity,
-                    height: screenHeight * 0.06,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "PLAY",
-                          style: TextStyle(
-                            color: kWhiteColor,
-                            fontWeight: bold,
-                            fontSize: 16,
-                            letterSpacing: 1,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            ),
-          ),
   );
 }
