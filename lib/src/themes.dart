@@ -139,6 +139,12 @@ class AppThemes {
       ),
     ),
 
+    scrollbarTheme: ScrollbarThemeData(
+        thickness: MaterialStateProperty.all(10),
+        thumbColor: MaterialStateProperty.all(kprimaryTextColor),
+        radius: const Radius.circular(10),
+        minThumbLength: 100),
+
     buttonTheme: const ButtonThemeData(
         buttonColor: _lightButtonPrimaryColor,
         textTheme: ButtonTextTheme.primary),

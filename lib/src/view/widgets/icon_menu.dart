@@ -35,7 +35,7 @@ class IconMenu extends StatelessWidget {
                   color: isSelected ? kSecondaryColor : kLightPurpleColor,
                 ),
                 child: Image(
-                  width: 35,
+                  width: screenWidth >= 992 ? 35 : 25,
                   image: AssetImage(icon),
                 ),
               ),

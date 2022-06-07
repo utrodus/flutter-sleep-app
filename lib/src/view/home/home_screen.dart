@@ -14,9 +14,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final ScrollController _scrollController = ScrollController();
+
   @override
-  void initState() {
-    super.initState();
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -29,13 +32,25 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Responsive(
             mobile: _homeTabletMobileScreen(screenHeight),
             tablet: _homeTabletMobileScreen(screenHeight),
-            desktop: _homeDesktopScreen(screenHeight),
-            largeDesktop: _homeDesktopScreen(screenHeight)),
+            desktop: Scrollbar(
+                controller: _scrollController,
+                trackVisibility: true,
+                thickness: 10,
+                radius: const Radius.circular(10),
+                child: _homeDesktopScreen(screenHeight, _scrollController)),
+            largeDesktop: Scrollbar(
+                controller: _scrollController,
+                trackVisibility: true,
+                thickness: 10,
+                radius: const Radius.circular(10),
+                child: _homeDesktopScreen(screenHeight, _scrollController))),
       ),
     );
   }
 
-  SingleChildScrollView _homeTabletMobileScreen(double screenHeight) {
+  SingleChildScrollView _homeTabletMobileScreen(
+    double screenHeight,
+  ) {
     return SingleChildScrollView(
         child: LayoutBuilder(builder: (context, constraints) {
       return Column(
@@ -149,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                                 image:
-                                    "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
+                                    "https://i.ibb.co/r0Ln7Wc/image-akudansepi.jpg",
                                 imageErrorBuilder: (c, o, s) => Image.asset(
                                   "assets/image_placeholder.jpg",
                                   height: 100,
@@ -186,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               child: const SleepCardItem(
                                 image:
-                                    "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
+                                    "https://i.ibb.co/r3zfjmq/image-nyatakansekarang.jpg",
                                 label: "Harus Menikah",
                                 subtitle: "45 Min | Sleep Stories",
                               ),
@@ -215,7 +230,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }));
   }
 
-  LayoutBuilder _homeDesktopScreen(double screenHeight) {
+  LayoutBuilder _homeDesktopScreen(
+      double screenHeight, ScrollController? controller) {
     return LayoutBuilder(builder: (context, constraints) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -223,6 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 IconMenu(
                   onTap: () {},
@@ -265,6 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
             child: SingleChildScrollView(
+              controller: controller,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -274,12 +292,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     alignment: Alignment.topCenter,
                     fit: BoxFit.cover,
                   ),
-                  Padding(
-                    padding: constraints.maxWidth > 1440
-                        ? const EdgeInsets.fromLTRB(150, 60, 150, 20)
-                        : constraints.maxWidth > 1200
-                            ? const EdgeInsets.fromLTRB(100, 60, 100, 20)
-                            : const EdgeInsets.fromLTRB(40, 60, 40, 20),
+                  Container(
+                    alignment: Alignment.center,
+                    width: constraints.maxWidth > 1200
+                        ? 1200
+                        : constraints.maxWidth,
+                    padding: const EdgeInsets.fromLTRB(40, 60, 40, 20),
                     child: Column(
                       children: [
                         Center(
@@ -334,10 +352,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                     image:
-                                        "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
+                                        "https://i.ibb.co/r0Ln7Wc/image-akudansepi.jpg",
                                     imageErrorBuilder: (c, o, s) => Image.asset(
                                       "assets/image_placeholder.jpg",
-                                      height: 100,
+                                      height: screenHeight * 0.45,
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                     ),
@@ -371,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   },
                                   child: const SleepCardItem(
                                     image:
-                                        "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
+                                        "https://i.ibb.co/r3zfjmq/image-nyatakansekarang.jpg",
                                     label: "Harus Menikah",
                                     subtitle: "45 Min | Sleep Stories",
                                   ),
