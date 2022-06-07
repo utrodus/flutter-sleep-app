@@ -6,7 +6,7 @@ import '../widgets/sleep_card_item.dart';
 import 'detail_screen.dart';
 
 Scaffold detailDesktopScreen(BoxConstraints constraints, BuildContext context,
-    double screenHeight, double screenWidth, Object tag) {
+    double screenHeight, double screenWidth, Object tag, bool isRelated) {
   return Scaffold(
     backgroundColor: kPrimaryColor,
     body: SingleChildScrollView(
@@ -28,7 +28,7 @@ Scaffold detailDesktopScreen(BoxConstraints constraints, BuildContext context,
                         flex: 2,
                         child: Hero(
                           transitionOnUserGestures: true,
-                          tag: tag,
+                          tag: isRelated ? Null : tag,
                           child: FadeInImage.assetNetwork(
                             placeholder: "assets/image_placeholder.jpg",
                             width: screenWidth * 0.3,
@@ -243,6 +243,7 @@ Scaffold detailDesktopScreen(BoxConstraints constraints, BuildContext context,
                                 MaterialPageRoute(builder: (context) {
                               return DetailScreen(
                                 heroTagName: "related_img_$i",
+                                isRelated: true,
                               );
                             }));
                           },

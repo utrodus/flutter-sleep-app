@@ -5,8 +5,13 @@ import '../../themes.dart';
 import '../widgets/sleep_card_item.dart';
 import 'detail_screen.dart';
 
-Scaffold detailMobileTabletScreen(BoxConstraints constraints,
-    BuildContext context, double screenHeight, double screenWidth, Object tag) {
+Scaffold detailMobileTabletScreen(
+    BoxConstraints constraints,
+    BuildContext context,
+    double screenHeight,
+    double screenWidth,
+    Object tag,
+    bool isRelated) {
   return Scaffold(
     backgroundColor: kPrimaryColor,
     body: SingleChildScrollView(
@@ -17,7 +22,7 @@ Scaffold detailMobileTabletScreen(BoxConstraints constraints,
           children: [
             Hero(
               transitionOnUserGestures: true,
-              tag: tag,
+              tag: isRelated ? Null : tag,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(10),
@@ -247,6 +252,7 @@ Scaffold detailMobileTabletScreen(BoxConstraints constraints,
                         MaterialPageRoute(builder: (context) {
                       return DetailScreen(
                         heroTagName: "related_img_$i",
+                        isRelated: true,
                       );
                     }));
                   },

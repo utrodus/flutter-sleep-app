@@ -153,6 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 MaterialPageRoute(builder: (context) {
                               return const DetailScreen(
                                 heroTagName: "feature_img",
+                                isRelated: false,
                               );
                             }));
                           },
@@ -204,6 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     MaterialPageRoute(builder: (context) {
                                   return DetailScreen(
                                     heroTagName: "detail_img_$i",
+                                    isRelated: false,
                                   );
                                 }));
                               },
@@ -345,6 +347,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     MaterialPageRoute(builder: (context) {
                                   return const DetailScreen(
                                     heroTagName: "feature_img",
+                                    isRelated: false,
                                   );
                                 }));
                               },
@@ -392,6 +395,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         MaterialPageRoute(builder: (context) {
                                       return DetailScreen(
                                         heroTagName: "detail_img_$i",
+                                        isRelated: false,
                                       );
                                     }));
                                   },
