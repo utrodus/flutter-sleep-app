@@ -207,6 +207,9 @@ Scaffold detailMobileTabletScreen(BoxConstraints constraints,
                   letterSpacing: 1,
                   color: kWhiteColor,
                   fontWeight: FontWeight.bold),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
             child: const Text(
               "PLAY",
