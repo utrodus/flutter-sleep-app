@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sleep/src/models/sleep_media_item.dart';
+import 'package:sleep/src/models/sleep_media_model.dart';
 import 'package:sleep/src/utils/responsive.dart';
 import 'package:sleep/src/view/details/detail_desktop.dart';
 import 'detail_mobile_tablet.dart';
@@ -21,7 +21,7 @@ class DetailScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(child: LayoutBuilder(builder: (context, constraints) {
       return Responsive(
-          mobile: detailMobileTabletScreen(
+          mobile: DetailMobileTabletContent(
             constraints: constraints,
             context: context,
             screenHeight: screenHeight,
@@ -30,7 +30,7 @@ class DetailScreen extends StatelessWidget {
             isRelated: isRelated,
             sleepMediaItem: sleepMediaItem,
           ),
-          tablet: detailMobileTabletScreen(
+          tablet: DetailMobileTabletContent(
             constraints: constraints,
             context: context,
             screenHeight: screenHeight,
@@ -39,7 +39,7 @@ class DetailScreen extends StatelessWidget {
             isRelated: isRelated,
             sleepMediaItem: sleepMediaItem,
           ),
-          desktop: detailDesktopScreen(
+          desktop: DetailDesktopContent(
             constraints: constraints,
             context: context,
             screenHeight: screenHeight,
@@ -48,7 +48,7 @@ class DetailScreen extends StatelessWidget {
             isRelated: isRelated,
             sleepMediaItem: sleepMediaItem,
           ),
-          largeDesktop: detailDesktopScreen(
+          largeDesktop: DetailDesktopContent(
             constraints: constraints,
             context: context,
             screenHeight: screenHeight,

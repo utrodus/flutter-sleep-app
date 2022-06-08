@@ -1,6 +1,6 @@
 // Load Dummy Media Data
 
-import 'package:sleep/src/models/sleep_media_item.dart';
+import 'package:sleep/src/models/sleep_media_model.dart';
 
 Future<List<SleepMediaItem>> getMediaDatas({int? categoryId}) {
   return Future.delayed(const Duration(seconds: 1), () {

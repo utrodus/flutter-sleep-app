@@ -4,7 +4,7 @@ import 'package:sleep/src/utils/responsive.dart';
 import 'package:sleep/src/view/details/detail_screen.dart';
 import 'package:sleep/src/view_models/media_view_model.dart';
 
-import '../../models/sleep_media_item.dart';
+import '../../models/sleep_media_model.dart';
 import '../widgets/icon_menu.dart';
 import '../widgets/sleep_card_item.dart';
 import '../widgets/sleep_item_loading.dart';

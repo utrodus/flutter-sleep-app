@@ -33,7 +33,7 @@ dependencies:
   flutter_iconly: ^1.0.2
   flutter_native_splash: ^2.2.2
   just_audio: ^0.9.24
-  just_audio_web: ^0.4.7
+  audio_video_progress_bar: ^0.10.0
   shimmer: ^2.0.0
 
 dev_dependencies:
