@@ -6,12 +6,12 @@
 
 import 'package:flutter/material.dart';
 
-// Default Value
+/// Default Value
 double defaultMargin = 32.0;
 double defaultPadding = 18.0;
 double defaultRadius = 12.0;
 
-// Colors
+/// Colors
 const Color kPrimaryColor = Color(0xff03174C);
 const Color kprimaryTextColor = Color(0xffE6E7F2);
 const Color kSecondaryColor = Color(0xff8E97FD);
@@ -24,7 +24,7 @@ const Color kWhiteColor = Color(0xFFFFFFFF);
 const Color kShimmerBaseColor = Color(0xFFF5F5F5);
 const Color kShimmerHightlightColor = Color(0xFFE0E0E0);
 
-// TextStyles
+/// Text Styles
 TextStyle primaryTextStyle =
     const TextStyle(color: kprimaryTextColor, fontFamily: "Roboto");
 TextStyle secondaryTextStyle =
@@ -34,7 +34,7 @@ TextStyle mediumTextStyle =
 TextStyle whiteTextStyle =
     const TextStyle(color: kWhiteColor, fontFamily: "Roboto");
 
-// Fonts Weight
+/// Fonts Weight
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;
 FontWeight medium = FontWeight.w500;
@@ -43,19 +43,15 @@ FontWeight bold = FontWeight.w700;
 class AppThemes {
   AppThemes._();
 
-  //constants color range for light theme
   static const Color _lightPrimaryColor = kPrimaryColor;
 
   static const Color _lightPrimaryVariantColor = kWhiteColor;
   static const Color _lightButtonPrimaryColor = kSecondaryColor;
   static const Color _lightIconColor = Color(0xffE6E7F2);
 
-  //the light theme
   static final ThemeData sleepTheme = ThemeData(
-    // canvasColor: _lightPrimaryColor,
     fontFamily: "Roboto",
     scaffoldBackgroundColor: _lightPrimaryVariantColor,
-
     appBarTheme: AppBarTheme(
       iconTheme: const IconThemeData(color: _lightPrimaryVariantColor),
       backgroundColor: kPrimaryColor,
@@ -68,11 +64,9 @@ class AppThemes {
       secondary: kMediumPurpleColor,
       onPrimary: kWhiteColor,
     ),
-
     iconTheme: const IconThemeData(
       color: _lightIconColor,
     ),
-
     textTheme: TextTheme(
       headline1: TextStyle(
         fontSize: 24,
@@ -125,13 +119,11 @@ class AppThemes {
         color: kSecondaryTextColor,
       ),
     ),
-
     scrollbarTheme: ScrollbarThemeData(
         thickness: MaterialStateProperty.all(10),
         thumbColor: MaterialStateProperty.all(kprimaryTextColor),
         radius: const Radius.circular(10),
         minThumbLength: 100),
-
     buttonTheme: const ButtonThemeData(
         buttonColor: _lightButtonPrimaryColor,
         textTheme: ButtonTextTheme.primary),

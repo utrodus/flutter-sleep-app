@@ -1,4 +1,4 @@
-// Load Dummy Media Data
+/// Load Dummy Media Data
 
 import 'package:sleep/src/models/sleep_media_model.dart';
 
