@@ -124,21 +124,6 @@ class AppThemes {
         fontWeight: light,
         color: kSecondaryTextColor,
       ),
-      button: TextStyle(
-        fontSize: 14,
-        fontWeight: light,
-        color: kWhiteColor,
-      ),
-      caption: TextStyle(
-        fontSize: 12,
-        fontWeight: regular,
-        color: kWhiteColor,
-      ),
-      overline: TextStyle(
-        fontSize: 10,
-        fontWeight: regular,
-        color: kWhiteColor,
-      ),
     ),
 
     scrollbarTheme: ScrollbarThemeData(
