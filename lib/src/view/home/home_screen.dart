@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                                 image:
-                                    "https://i.ibb.co/r0Ln7Wc/image-akudansepi.jpg",
+                                    "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
                                 imageErrorBuilder: (c, o, s) => Image.asset(
                                   "assets/image_placeholder.jpg",
                                   height: constraints.maxWidth > 600
