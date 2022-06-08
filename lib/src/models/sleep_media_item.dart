@@ -33,7 +33,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Aku dan Sepi Yang Kusimpan Rapi',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "03:14",
     imgUrl: "https://i.ibb.co/r0Ln7Wc/image-akudansepi.jpg",
@@ -48,7 +48,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Kapan Menikah ?',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "03:15",
     imgUrl: "https://i.ibb.co/9qt8MYP/image-kapanmenikah.jpg",
@@ -63,7 +63,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Lagi Mikirin Apa Kok Belum Tidur',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "02:28",
     imgUrl: "https://i.ibb.co/X3s9wj9/image-lagimikirinapa.jpg",
@@ -78,7 +78,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Nyatakan Sekarang Sebelum Menyesal',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "02:31",
     imgUrl: "https://i.ibb.co/vhTvFHf/image-nyatakansekarang.jpg",
@@ -93,7 +93,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Seandainya Waktu Dapat Kuulang',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "03:08",
     imgUrl: "https://i.ibb.co/N7NkTWQ/image-seandainyawaktu.jpg",
@@ -108,7 +108,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Kapan Terakhir Kali Nyenengin Diri Sendiri',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "03:17",
     imgUrl: "https://i.ibb.co/s2pW4sq/kapan-nyenengin.jpg",
@@ -123,7 +123,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Sudut Suara',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "01:51",
     imgUrl: "https://i.ibb.co/QjWRN0X/sudut-suara.jpg",
@@ -138,7 +138,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Bukan Hanya Tentang Nyaman',
     category: SleepMediaCategory(
       id: 1,
-      name: 'stories',
+      name: 'Sleep Story',
     ),
     duration: "04:42",
     imgUrl: "https://i.ibb.co/CMHmZqf/bukan-hanya-tentang-nyaman.jpg",
@@ -153,7 +153,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Don\'t Cry',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "02:31",
     imgUrl: "https://i.ibb.co/6Y49Wfr/Dont-Cry.jpg",
@@ -168,7 +168,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Forget Jakarta',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "06:42",
     imgUrl: "https://i.ibb.co/M6VKsHN/forget-jakarta.jpg",
@@ -183,7 +183,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Song for my wife',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "02:35",
     imgUrl:
@@ -199,7 +199,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Meditation',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "03:34",
     imgUrl: "https://i.ibb.co/JB4pg9b/Meditation.jpg",
@@ -214,7 +214,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Study Night',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "04:10",
     imgUrl: "https://i.ibb.co/t20SWFL/Study-Night.jpg",
@@ -229,7 +229,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'To The Stars',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "04:10",
     imgUrl: "https://i.ibb.co/fd28dZ3/To-the-Stars.jpg",
@@ -244,11 +244,10 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Novo Amor - Ontario',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "03:32",
-    imgUrl:
-        "https://ksmtour.com/media/images/articles18/sirah-kencong-blitar-jawa-timur.jpg",
+    imgUrl: "https://i.ibb.co/nLGwDcs/maxresdefault.jpg",
     description:
         "Beristirahatlah saat Kamu lelah. Segarkan dan perbarui dirimu, tubuhmu, pikiranmu, jiwamu. Lalu, kembali bekerja.",
     mediaUrl:
@@ -260,7 +259,7 @@ List<SleepMediaItem> sleepMediaList = [
     title: 'Dialog Hujan',
     category: SleepMediaCategory(
       id: 2,
-      name: 'music',
+      name: 'Sleep Music',
     ),
     duration: "03:32",
     imgUrl: "https://i.ibb.co/WHHBTMj/Dialog-Hujan.jpg",
