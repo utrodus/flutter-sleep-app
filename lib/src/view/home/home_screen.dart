@@ -201,9 +201,22 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const DetailScreen(
+                              return DetailScreen(
                                 heroTagName: "feature_img",
                                 isRelated: false,
+                                sleepMediaItem: SleepMediaItem(
+                                    title: "Mencari Kebahagiaan",
+                                    category: SleepMediaCategory(
+                                        id: 1, name: "Sleep Stories"),
+                                    duration: "01:00",
+                                    imgUrl:
+                                        "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
+                                    description:
+                                        "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
+                                    mediaUrl:
+                                        "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
+                                    totalFavorite: "2000.000",
+                                    totalListening: "50.000"),
                               );
                             }));
                           },
@@ -277,6 +290,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         return DetailScreen(
                                           heroTagName: "detail_img_$i",
                                           isRelated: false,
+                                          sleepMediaItem: sleepMediaDatas[i],
                                         );
                                       }));
                                     },
@@ -437,9 +451,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return const DetailScreen(
+                                  return DetailScreen(
                                     heroTagName: "feature_img",
                                     isRelated: false,
+                                    sleepMediaItem: SleepMediaItem(
+                                        title: "Mencari Kebahagiaan",
+                                        category: SleepMediaCategory(
+                                            id: 1, name: "Sleep Stories"),
+                                        duration: "01:00",
+                                        imgUrl:
+                                            "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
+                                        description:
+                                            "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
+                                        mediaUrl:
+                                            "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
+                                        totalFavorite: "2000.000",
+                                        totalListening: "50.000"),
                                   );
                                 }));
                               },
@@ -455,7 +482,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                     image:
-                                        "https://i.ibb.co/r0Ln7Wc/image-akudansepi.jpg",
+                                        "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
                                     imageErrorBuilder: (c, o, s) => Image.asset(
                                       "assets/image_placeholder.jpg",
                                       height: screenHeight * 0.45,
@@ -510,6 +537,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             return DetailScreen(
                                               heroTagName: "detail_img_$i",
                                               isRelated: false,
+                                              sleepMediaItem:
+                                                  sleepMediaDatas[i],
                                             );
                                           }));
                                         },

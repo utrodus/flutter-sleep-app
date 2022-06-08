@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:sleep/src/view/details/detail_screen.dart';
 
+import '../../models/sleep_media_item.dart';
 import '../../themes.dart';
 import '../widgets/sleep_card_item.dart';
-import 'detail_screen.dart';
 
-Scaffold detailMobileTabletScreen(
-    BoxConstraints constraints,
-    BuildContext context,
-    double screenHeight,
-    double screenWidth,
-    Object tag,
-    bool isRelated) {
+Scaffold detailMobileTabletScreen({
+  required BoxConstraints constraints,
+  required BuildContext context,
+  required double screenHeight,
+  required double screenWidth,
+  required Object tag,
+  required bool isRelated,
+  required SleepMediaItem sleepMediaItem,
+}) {
   return Scaffold(
     backgroundColor: kPrimaryColor,
     body: SingleChildScrollView(
@@ -35,8 +38,7 @@ Scaffold detailMobileTabletScreen(
                       : screenHeight * 0.38,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  image:
-                      "https://i3.ytimg.com/vi/Nof0phtUdwg/maxresdefault.jpg",
+                  image: sleepMediaItem.imgUrl,
                   imageErrorBuilder: (c, o, s) => Image.asset(
                     "assets/image_placeholder.jpg",
                     height: screenHeight * 0.38,
@@ -130,14 +132,14 @@ Scaffold detailMobileTabletScreen(
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 30, 10, 15),
           child: Text(
-            "Aku & Sepi yang kusimpan rapi",
+            sleepMediaItem.title,
             style: Theme.of(context).textTheme.headline1,
           ),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
           child: Text(
-            "45 MIN | SLEEP MUSIC",
+            "${sleepMediaItem.duration} | ${sleepMediaItem.category.name}",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: mediumTextStyle.copyWith(
@@ -150,7 +152,7 @@ Scaffold detailMobileTabletScreen(
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),
           child: Text(
-            "Ease the mind into a restful night’s sleep  with these deep, amblent tones.",
+            sleepMediaItem.description,
             style: TextStyle(
                 fontWeight: light,
                 height: 1.8,
@@ -171,7 +173,7 @@ Scaffold detailMobileTabletScreen(
                         size: 18, color: kprimaryTextColor),
                     const SizedBox(width: 10),
                     Text(
-                      "24.234 Favorits",
+                      "${sleepMediaItem.totalFavorite} Favorits",
                       style: TextStyle(
                           fontWeight: medium,
                           fontSize: 14,
@@ -188,7 +190,7 @@ Scaffold detailMobileTabletScreen(
                         size: 18, color: kprimaryTextColor),
                     const SizedBox(width: 10),
                     Text(
-                      "34.234 Listening",
+                      "${sleepMediaItem.totalListening} Listening",
                       style: TextStyle(
                           fontWeight: medium,
                           fontSize: 14,
@@ -239,7 +241,12 @@ Scaffold detailMobileTabletScreen(
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 4,
+          itemCount: sleepMediaList
+              .where((item) => item.category.id == 2)
+              .toList()
+              .getRange(0, 4)
+              .toList()
+              .length,
           itemBuilder: (context, i) {
             return Hero(
               tag: "related_img_$i",
@@ -251,16 +258,17 @@ Scaffold detailMobileTabletScreen(
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return DetailScreen(
-                        heroTagName: "related_img_$i",
-                        isRelated: true,
+                        heroTagName: "detail_img_$i",
+                        isRelated: false,
+                        sleepMediaItem: sleepMediaList[i],
                       );
                     }));
                   },
-                  child: const SleepCardItem(
-                    image:
-                        "https://i3.ytimg.com/vi/8nlPnuIoTMs/maxresdefault.jpg",
-                    label: "Harus Menikah",
-                    subtitle: "45 Min | Sleep Stories",
+                  child: SleepCardItem(
+                    image: sleepMediaList[i].imgUrl,
+                    label: sleepMediaList[i].title,
+                    subtitle:
+                        "${sleepMediaList[i].duration} | ${sleepMediaList[i].category.name}",
                   ),
                 ),
               ),
