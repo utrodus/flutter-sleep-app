@@ -140,7 +140,7 @@ Scaffold detailMobileTabletScreen(
             "45 MIN | SLEEP MUSIC",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: mediumBrownTextStyle.copyWith(
+            style: mediumTextStyle.copyWith(
               fontWeight: medium,
               letterSpacing: 1.2,
               fontSize: 11,

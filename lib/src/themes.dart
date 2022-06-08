@@ -21,16 +21,18 @@ const Color kLightPurpleColor = Color(0xff586894);
 const Color kMediumPurpleColor = Color(0xff1F265E);
 const Color kMediumPurpleTextColor = Color(0xff98A1BD);
 const Color kWhiteColor = Color(0xFFFFFFFF);
+const Color kShimmerBaseColor = Color(0xFFF5F5F5);
+const Color kShimmerHightlightColor = Color(0xFFE0E0E0);
 
 // TextStyles
 TextStyle primaryTextStyle =
     const TextStyle(color: kprimaryTextColor, fontFamily: "Roboto");
 TextStyle secondaryTextStyle =
-    const TextStyle(color: kSecondaryTextColor, fontFamily: "DMSans");
-TextStyle mediumBrownTextStyle =
-    const TextStyle(color: kMediumPurpleTextColor, fontFamily: "DMSans");
+    const TextStyle(color: kSecondaryTextColor, fontFamily: "Roboto");
+TextStyle mediumTextStyle =
+    const TextStyle(color: kMediumPurpleTextColor, fontFamily: "Roboto");
 TextStyle whiteTextStyle =
-    const TextStyle(color: kWhiteColor, fontFamily: "DMSans");
+    const TextStyle(color: kWhiteColor, fontFamily: "Roboto");
 
 // Fonts Weight
 FontWeight light = FontWeight.w300;

@@ -58,7 +58,7 @@ class SleepCardItem extends StatelessWidget {
                       subtitle,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: mediumBrownTextStyle.copyWith(
+                      style: mediumTextStyle.copyWith(
                         fontWeight: medium,
                         fontSize: 11,
                       ),
