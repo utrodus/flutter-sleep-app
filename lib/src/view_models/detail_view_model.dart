@@ -87,6 +87,7 @@ class DetailViewModel {
   }
 
   void dispose() {
+    _audioPlayer.stop();
     _audioPlayer.dispose();
   }
 
