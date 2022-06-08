@@ -33,10 +33,9 @@ Scaffold welcomeDesktop(BuildContext context, double screenWidth) {
                       ),
                       child: Text(
                         "Welcome to Sleep",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline2!
-                            .copyWith(fontSize: 28),
+                        style: Theme.of(context).textTheme.headline2!.copyWith(
+                              fontSize: 28,
+                            ),
                       ),
                     ),
                     Padding(

@@ -136,10 +136,11 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                   child: Text(
                                     widget.sleepMediaItem.description,
                                     style: TextStyle(
-                                        fontWeight: light,
-                                        height: 1.8,
-                                        fontSize: 16,
-                                        color: kprimaryTextColor),
+                                      fontWeight: light,
+                                      height: 1.8,
+                                      fontSize: 16,
+                                      color: kprimaryTextColor,
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -152,17 +153,22 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          const Icon(IconlyBold.heart,
-                                              size: 18,
-                                              color: kprimaryTextColor),
-                                          const SizedBox(width: 10),
+                                          const Icon(
+                                            IconlyBold.heart,
+                                            size: 18,
+                                            color: kprimaryTextColor,
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
                                           FittedBox(
                                             child: Text(
                                               "${widget.sleepMediaItem.totalFavorite} Favorits",
                                               style: TextStyle(
-                                                  fontWeight: medium,
-                                                  fontSize: 14,
-                                                  color: kprimaryTextColor),
+                                                fontWeight: medium,
+                                                fontSize: 14,
+                                                color: kprimaryTextColor,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -175,17 +181,22 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            const Icon(IconlyBold.play,
-                                                size: 18,
-                                                color: kprimaryTextColor),
-                                            const SizedBox(width: 10),
+                                            const Icon(
+                                              IconlyBold.play,
+                                              size: 18,
+                                              color: kprimaryTextColor,
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
                                             Flexible(
                                               child: Text(
                                                 "${widget.sleepMediaItem.totalListening} Listening",
                                                 style: TextStyle(
-                                                    fontWeight: medium,
-                                                    fontSize: 14,
-                                                    color: kprimaryTextColor),
+                                                  fontWeight: medium,
+                                                  fontSize: 14,
+                                                  color: kprimaryTextColor,
+                                                ),
                                               ),
                                             ),
                                           ],
@@ -245,14 +256,19 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                                     backgroundColor:
                                                         MaterialStateProperty
                                                             .all(
-                                                                kSecondaryColor),
+                                                      kSecondaryColor,
+                                                    ),
                                                     shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                            RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    )),
+                                                        .all<
+                                                            RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                          12.0,
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
                                                   onPressed: null,
                                                   child: Container(
@@ -282,14 +298,17 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                                     backgroundColor:
                                                         MaterialStateProperty
                                                             .all(
-                                                                kSecondaryColor),
+                                                      kSecondaryColor,
+                                                    ),
                                                     shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                            RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    )),
+                                                        .all<
+                                                            RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ),
                                                   ),
                                                   onPressed: () {
                                                     _detailViewModel.play();
@@ -317,12 +336,14 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                                             .all(
                                                                 kSecondaryColor),
                                                     shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                            RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    )),
+                                                        .all<
+                                                            RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ),
                                                   ),
                                                   child: const Text(
                                                     "PAUSE",
@@ -357,7 +378,8 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                         decoration: const BoxDecoration(
                                           color: kWhiteColor,
                                           borderRadius: BorderRadius.all(
-                                              Radius.circular(100)),
+                                            Radius.circular(100),
+                                          ),
                                         ),
                                         padding: const EdgeInsets.all(5),
                                         child: IconButton(
@@ -377,14 +399,18 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
                       height: 1,
                       width: double.infinity,
                       color: kMediumPurpleTextColor,
                     ),
-                    const SizedBox(height: 50),
+                    const SizedBox(
+                      height: 50,
+                    ),
                     Text(
                       "Related Playlist",
                       style: TextStyle(
@@ -392,7 +418,9 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                           fontSize: 25,
                           color: kprimaryTextColor),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -437,7 +465,9 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                         mainAxisSpacing: 15,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(
+                      height: 10,
+                    ),
                   ],
                 ),
               ),

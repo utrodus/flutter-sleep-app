@@ -70,17 +70,19 @@ class _HomeScreenState extends State<HomeScreen> {
             mobile: _homeTabletMobileScreen(screenHeight),
             tablet: _homeTabletMobileScreen(screenHeight),
             desktop: Scrollbar(
-                controller: _scrollController,
-                trackVisibility: true,
-                thickness: 10,
-                radius: const Radius.circular(10),
-                child: _homeDesktopScreen(screenHeight, _scrollController)),
+              controller: _scrollController,
+              trackVisibility: true,
+              thickness: 10,
+              radius: const Radius.circular(10),
+              child: _homeDesktopScreen(screenHeight, _scrollController),
+            ),
             largeDesktop: Scrollbar(
-                controller: _scrollController,
-                trackVisibility: true,
-                thickness: 10,
-                radius: const Radius.circular(10),
-                child: _homeDesktopScreen(screenHeight, _scrollController))),
+              controller: _scrollController,
+              trackVisibility: true,
+              thickness: 10,
+              radius: const Radius.circular(10),
+              child: _homeDesktopScreen(screenHeight, _scrollController),
+            )),
       ),
     );
   }
@@ -205,18 +207,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 heroTagName: "feature_img",
                                 isRelated: false,
                                 sleepMediaItem: SleepMediaItem(
-                                    title: "Mencari Kebahagiaan",
-                                    category: SleepMediaCategory(
-                                        id: 1, name: "Sleep Stories"),
-                                    duration: "01:00",
-                                    imgUrl:
-                                        "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
-                                    description:
-                                        "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
-                                    mediaUrl:
-                                        "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
-                                    totalFavorite: "2000.000",
-                                    totalListening: "50.000"),
+                                  title: "Mencari Kebahagiaan",
+                                  category: SleepMediaCategory(
+                                      id: 1, name: "Sleep Stories"),
+                                  duration: "01:00",
+                                  imgUrl:
+                                      "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
+                                  description:
+                                      "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
+                                  mediaUrl:
+                                      "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
+                                  totalFavorite: "2000.000",
+                                  totalListening: "50.000",
+                                ),
                               );
                             }));
                           },
@@ -455,18 +458,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     heroTagName: "feature_img",
                                     isRelated: false,
                                     sleepMediaItem: SleepMediaItem(
-                                        title: "Mencari Kebahagiaan",
-                                        category: SleepMediaCategory(
-                                            id: 1, name: "Sleep Stories"),
-                                        duration: "01:00",
-                                        imgUrl:
-                                            "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
-                                        description:
-                                            "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
-                                        mediaUrl:
-                                            "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
-                                        totalFavorite: "2000.000",
-                                        totalListening: "50.000"),
+                                      title: "Mencari Kebahagiaan",
+                                      category: SleepMediaCategory(
+                                          id: 1, name: "Sleep Stories"),
+                                      duration: "01:00",
+                                      imgUrl:
+                                          "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
+                                      description:
+                                          "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
+                                      mediaUrl:
+                                          "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
+                                      totalFavorite: "2000.000",
+                                      totalListening: "50.000",
+                                    ),
                                   );
                                 }));
                               },

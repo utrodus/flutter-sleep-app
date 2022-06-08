@@ -201,10 +201,11 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
               child: Text(
                 widget.sleepMediaItem.description,
                 style: TextStyle(
-                    fontWeight: light,
-                    height: 1.8,
-                    fontSize: 16,
-                    color: kprimaryTextColor),
+                  fontWeight: light,
+                  height: 1.8,
+                  fontSize: 16,
+                  color: kprimaryTextColor,
+                ),
               ),
             ),
             Padding(
@@ -216,15 +217,21 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Icon(IconlyBold.heart,
-                            size: 18, color: kprimaryTextColor),
-                        const SizedBox(width: 10),
+                        const Icon(
+                          IconlyBold.heart,
+                          size: 18,
+                          color: kprimaryTextColor,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
                         Text(
                           "${widget.sleepMediaItem.totalFavorite} Favorits",
                           style: TextStyle(
-                              fontWeight: medium,
-                              fontSize: 14,
-                              color: kprimaryTextColor),
+                            fontWeight: medium,
+                            fontSize: 14,
+                            color: kprimaryTextColor,
+                          ),
                         ),
                       ],
                     ),
@@ -233,15 +240,21 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Icon(IconlyBold.play,
-                            size: 18, color: kprimaryTextColor),
-                        const SizedBox(width: 10),
+                        const Icon(
+                          IconlyBold.play,
+                          size: 18,
+                          color: kprimaryTextColor,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
                         Text(
                           "${widget.sleepMediaItem.totalListening} Listening",
                           style: TextStyle(
-                              fontWeight: medium,
-                              fontSize: 14,
-                              color: kprimaryTextColor),
+                            fontWeight: medium,
+                            fontSize: 14,
+                            color: kprimaryTextColor,
+                          ),
                         ),
                       ],
                     ),
@@ -285,10 +298,11 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                               horizontal: widget.screenWidth * 0.38,
                               vertical: 12),
                           textStyle: const TextStyle(
-                              fontSize: 16,
-                              letterSpacing: 1,
-                              color: kWhiteColor,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            letterSpacing: 1,
+                            color: kWhiteColor,
+                            fontWeight: FontWeight.bold,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -312,10 +326,11 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                               horizontal: widget.screenWidth * 0.38,
                               vertical: 25),
                           textStyle: const TextStyle(
-                              fontSize: 16,
-                              letterSpacing: 1,
-                              color: kWhiteColor,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            letterSpacing: 1,
+                            color: kWhiteColor,
+                            fontWeight: FontWeight.bold,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -351,8 +366,12 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                 },
               ),
             ),
-            const SizedBox(height: 20),
-            const SizedBox(height: 20),
+            const SizedBox(
+              height: 20,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               height: 1,
@@ -364,7 +383,10 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
               child: Text(
                 "Related",
                 style: TextStyle(
-                    fontWeight: bold, fontSize: 20, color: kprimaryTextColor),
+                  fontWeight: bold,
+                  fontSize: 20,
+                  color: kprimaryTextColor,
+                ),
               ),
             ),
             GridView.builder(
@@ -405,12 +427,15 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
               },
               padding: const EdgeInsets.fromLTRB(25, 5, 18, 0),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: widget.constraints.maxWidth > 600 ? 3 : 2,
-                  childAspectRatio: 1.05,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 3),
+                crossAxisCount: widget.constraints.maxWidth > 600 ? 3 : 2,
+                childAspectRatio: 1.05,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 3,
+              ),
             ),
-            SizedBox(height: widget.constraints.maxWidth > 600 ? 10 : 80),
+            SizedBox(
+              height: widget.constraints.maxWidth > 600 ? 10 : 80,
+            ),
           ],
         )),
       ),

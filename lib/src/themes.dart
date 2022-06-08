@@ -53,11 +53,16 @@ class AppThemes {
     fontFamily: "Roboto",
     scaffoldBackgroundColor: _lightPrimaryVariantColor,
     appBarTheme: AppBarTheme(
-      iconTheme: const IconThemeData(color: _lightPrimaryVariantColor),
+      iconTheme: const IconThemeData(
+        color: _lightPrimaryVariantColor,
+      ),
       backgroundColor: kPrimaryColor,
       centerTitle: true,
-      titleTextStyle:
-          TextStyle(color: kWhiteColor, fontWeight: bold, fontSize: 18),
+      titleTextStyle: TextStyle(
+        color: kWhiteColor,
+        fontWeight: bold,
+        fontSize: 18,
+      ),
     ),
     colorScheme: const ColorScheme.light(
       primary: _lightPrimaryColor,
@@ -121,12 +126,15 @@ class AppThemes {
     ),
     scrollbarTheme: ScrollbarThemeData(
         thickness: MaterialStateProperty.all(10),
-        thumbColor: MaterialStateProperty.all(kprimaryTextColor),
+        thumbColor: MaterialStateProperty.all(
+          kprimaryTextColor,
+        ),
         radius: const Radius.circular(10),
         minThumbLength: 100),
     buttonTheme: const ButtonThemeData(
-        buttonColor: _lightButtonPrimaryColor,
-        textTheme: ButtonTextTheme.primary),
+      buttonColor: _lightButtonPrimaryColor,
+      textTheme: ButtonTextTheme.primary,
+    ),
     unselectedWidgetColor: _lightPrimaryColor,
   );
 }

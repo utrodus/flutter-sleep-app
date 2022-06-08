@@ -6,12 +6,12 @@ import 'detail_mobile_tablet.dart';
 
 class DetailScreen extends StatelessWidget {
   final SleepMediaItem sleepMediaItem;
-  const DetailScreen(
-      {Key? key,
-      required this.heroTagName,
-      required this.isRelated,
-      required this.sleepMediaItem})
-      : super(key: key);
+  const DetailScreen({
+    Key? key,
+    required this.heroTagName,
+    required this.isRelated,
+    required this.sleepMediaItem,
+  }) : super(key: key);
   final String heroTagName;
   final bool isRelated;
 
@@ -21,42 +21,43 @@ class DetailScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(child: LayoutBuilder(builder: (context, constraints) {
       return Responsive(
-          mobile: DetailMobileTabletContent(
-            constraints: constraints,
-            context: context,
-            screenHeight: screenHeight,
-            screenWidth: screenWidth,
-            tag: heroTagName,
-            isRelated: isRelated,
-            sleepMediaItem: sleepMediaItem,
-          ),
-          tablet: DetailMobileTabletContent(
-            constraints: constraints,
-            context: context,
-            screenHeight: screenHeight,
-            screenWidth: screenWidth,
-            tag: heroTagName,
-            isRelated: isRelated,
-            sleepMediaItem: sleepMediaItem,
-          ),
-          desktop: DetailDesktopContent(
-            constraints: constraints,
-            context: context,
-            screenHeight: screenHeight,
-            screenWidth: screenWidth,
-            tag: heroTagName,
-            isRelated: isRelated,
-            sleepMediaItem: sleepMediaItem,
-          ),
-          largeDesktop: DetailDesktopContent(
-            constraints: constraints,
-            context: context,
-            screenHeight: screenHeight,
-            screenWidth: screenWidth,
-            tag: heroTagName,
-            isRelated: isRelated,
-            sleepMediaItem: sleepMediaItem,
-          ));
+        mobile: DetailMobileTabletContent(
+          constraints: constraints,
+          context: context,
+          screenHeight: screenHeight,
+          screenWidth: screenWidth,
+          tag: heroTagName,
+          isRelated: isRelated,
+          sleepMediaItem: sleepMediaItem,
+        ),
+        tablet: DetailMobileTabletContent(
+          constraints: constraints,
+          context: context,
+          screenHeight: screenHeight,
+          screenWidth: screenWidth,
+          tag: heroTagName,
+          isRelated: isRelated,
+          sleepMediaItem: sleepMediaItem,
+        ),
+        desktop: DetailDesktopContent(
+          constraints: constraints,
+          context: context,
+          screenHeight: screenHeight,
+          screenWidth: screenWidth,
+          tag: heroTagName,
+          isRelated: isRelated,
+          sleepMediaItem: sleepMediaItem,
+        ),
+        largeDesktop: DetailDesktopContent(
+          constraints: constraints,
+          context: context,
+          screenHeight: screenHeight,
+          screenWidth: screenWidth,
+          tag: heroTagName,
+          isRelated: isRelated,
+          sleepMediaItem: sleepMediaItem,
+        ),
+      );
     }));
   }
 }

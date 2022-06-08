@@ -9,5 +9,7 @@ void main() async {
   /// Fix Error Http Request CERTIFICATE_VERIFY_FAILED
   /// This userful for error image network request
   HttpOverrides.global = MyHttpOverrides();
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }

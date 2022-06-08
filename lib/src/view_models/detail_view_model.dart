@@ -9,7 +9,9 @@ class DetailViewModel {
       total: Duration.zero,
     ),
   );
-  final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.paused);
+  final buttonNotifier = ValueNotifier<ButtonState>(
+    ButtonState.paused,
+  );
 
   static String url = '';
 
