@@ -2,6 +2,7 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
+import '../../models/progress_bar_model.dart';
 import '../../models/sleep_media_model.dart';
 import '../../themes.dart';
 import '../../view_models/detail_view_model.dart';
@@ -34,11 +35,11 @@ class DetailDesktopContent extends StatefulWidget {
 
 class _DetailDesktopContentState extends State<DetailDesktopContent> {
   late final DetailViewModel _detailViewModel;
-
+  bool isFavorited = false;
   @override
   void initState() {
     super.initState();
-    DetailViewModel.url = widget.sleepMediaItem.mediaUrl;
+    DetailViewModel.url = widget.sleepMediaItem.mediaUrl.toString();
     _detailViewModel = DetailViewModel();
   }
 
@@ -46,6 +47,12 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
   void dispose() {
     _detailViewModel.dispose();
     super.dispose();
+  }
+
+  void addToFavorite() {
+    setState(() {
+      isFavorited = !isFavorited;
+    });
   }
 
   @override
@@ -86,7 +93,7 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                 placeholder: "assets/image_placeholder.jpg",
                                 width: widget.screenWidth * 0.3,
                                 fit: BoxFit.cover,
-                                image: widget.sleepMediaItem.imgUrl,
+                                image: widget.sleepMediaItem.imgUrl.toString(),
                                 imageErrorBuilder: (c, o, s) => Image.asset(
                                   "assets/image_placeholder.jpg",
                                   width: widget.screenWidth * 0.3,
@@ -111,7 +118,7 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                   padding:
                                       const EdgeInsets.fromLTRB(20, 0, 20, 16),
                                   child: Text(
-                                    "${widget.sleepMediaItem.duration} | ${widget.sleepMediaItem.category.name}",
+                                    "${widget.sleepMediaItem.duration} | ${widget.sleepMediaItem.category!.name}",
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: mediumTextStyle.copyWith(
@@ -125,7 +132,7 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                   padding:
                                       const EdgeInsets.fromLTRB(20, 0, 10, 25),
                                   child: Text(
-                                    widget.sleepMediaItem.title,
+                                    widget.sleepMediaItem.title.toString(),
                                     style:
                                         Theme.of(context).textTheme.headline1,
                                   ),
@@ -134,7 +141,8 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                   padding:
                                       const EdgeInsets.fromLTRB(20, 0, 10, 0),
                                   child: Text(
-                                    widget.sleepMediaItem.description,
+                                    widget.sleepMediaItem.description
+                                        .toString(),
                                     style: TextStyle(
                                       fontWeight: light,
                                       height: 1.8,
@@ -163,7 +171,7 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                           ),
                                           FittedBox(
                                             child: Text(
-                                              "${widget.sleepMediaItem.totalFavorite} Favorits",
+                                              "${widget.sleepMediaItem.totalFavorite} Favorites",
                                               style: TextStyle(
                                                 fontWeight: medium,
                                                 fontSize: 14,
@@ -365,30 +373,18 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                         padding: const EdgeInsets.all(5),
                                         child: IconButton(
                                             alignment: Alignment.center,
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              IconlyLight.heart,
-                                              color: Color(0xffE55871),
+                                            onPressed: () {
+                                              addToFavorite();
+                                            },
+                                            icon: Icon(
+                                              isFavorited
+                                                  ? IconlyBold.heart
+                                                  : IconlyLight.heart,
+                                              color: const Color(0xffE55871),
                                             )),
                                       ),
                                       const SizedBox(
                                         width: 20,
-                                      ),
-                                      Container(
-                                        decoration: const BoxDecoration(
-                                          color: kWhiteColor,
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(100),
-                                          ),
-                                        ),
-                                        padding: const EdgeInsets.all(5),
-                                        child: IconButton(
-                                            alignment: Alignment.center,
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              IconlyLight.download,
-                                              color: kPrimaryColor,
-                                            )),
                                       ),
                                     ],
                                   ),
@@ -425,7 +421,7 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: sleepMediaList
-                          .where((item) => item.category.id == 2)
+                          .where((item) => item.category!.id == 2)
                           .toList()
                           .getRange(0, 4)
                           .toList()
@@ -448,10 +444,10 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                 }));
                               },
                               child: SleepCardItem(
-                                image: sleepMediaList[i].imgUrl,
-                                label: sleepMediaList[i].title,
+                                image: sleepMediaList[i].imgUrl.toString(),
+                                label: sleepMediaList[i].title.toString(),
                                 subtitle:
-                                    "${sleepMediaList[i].duration} | ${sleepMediaList[i].category.name}",
+                                    "${sleepMediaList[i].duration} | ${sleepMediaList[i].category!.name}",
                               ),
                             ),
                           ),

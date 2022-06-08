@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
+import '../models/progress_bar_model.dart';
+import '../models/sleep_media_model.dart';
+
 class DetailViewModel {
   final progressNotifier = ValueNotifier<ProgressBarState>(
     ProgressBarState(
@@ -86,17 +89,12 @@ class DetailViewModel {
   void dispose() {
     _audioPlayer.dispose();
   }
-}
 
-class ProgressBarState {
-  ProgressBarState({
-    required this.current,
-    required this.buffered,
-    required this.total,
-  });
-  final Duration current;
-  final Duration buffered;
-  final Duration total;
-}
+  List<SleepMediaItem> items = [];
 
-enum ButtonState { paused, playing, loading }
+  toJson() {
+    return items.map((item) {
+      return item.toJson();
+    }).toList();
+  }
+}

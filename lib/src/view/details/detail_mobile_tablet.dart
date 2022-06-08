@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:sleep/src/view/details/detail_screen.dart';
 
+import '../../models/progress_bar_model.dart';
 import '../../models/sleep_media_model.dart';
 import '../../themes.dart';
 import '../../view_models/detail_view_model.dart';
@@ -35,11 +36,11 @@ class DetailMobileTabletContent extends StatefulWidget {
 
 class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
   late final DetailViewModel _detailViewModel;
-
+  bool isFavorited = false;
   @override
   void initState() {
     super.initState();
-    DetailViewModel.url = widget.sleepMediaItem.mediaUrl;
+    DetailViewModel.url = widget.sleepMediaItem.mediaUrl.toString();
     _detailViewModel = DetailViewModel();
   }
 
@@ -47,6 +48,12 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
   void dispose() {
     _detailViewModel.dispose();
     super.dispose();
+  }
+
+  void addToFavorite() {
+    setState(() {
+      isFavorited = !isFavorited;
+    });
   }
 
   @override
@@ -84,7 +91,7 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                           : widget.screenHeight * 0.38,
                       width: double.infinity,
                       fit: BoxFit.cover,
-                      image: widget.sleepMediaItem.imgUrl,
+                      image: widget.sleepMediaItem.imgUrl.toString(),
                       imageErrorBuilder: (c, o, s) => Image.asset(
                         "assets/image_placeholder.jpg",
                         height: widget.screenHeight * 0.38,
@@ -138,32 +145,13 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                                 padding: const EdgeInsets.all(5),
                                 child: IconButton(
                                     alignment: Alignment.center,
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      IconlyLight.heart,
-                                      color: kWhiteColor,
-                                    )),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 20, 15, 0),
-                          child: Material(
-                            color: Colors.black.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(100),
-                            child: InkWell(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(100)),
-                              onTap: () {},
-                              child: Container(
-                                alignment: Alignment.center,
-                                padding: const EdgeInsets.all(5),
-                                child: IconButton(
-                                    alignment: Alignment.center,
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      IconlyLight.download,
+                                    onPressed: () {
+                                      addToFavorite();
+                                    },
+                                    icon: Icon(
+                                      isFavorited
+                                          ? IconlyBold.heart
+                                          : IconlyLight.heart,
                                       color: kWhiteColor,
                                     )),
                               ),
@@ -179,14 +167,14 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 30, 10, 15),
               child: Text(
-                widget.sleepMediaItem.title,
+                widget.sleepMediaItem.title.toString(),
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
               child: Text(
-                "${widget.sleepMediaItem.duration} | ${widget.sleepMediaItem.category.name}",
+                "${widget.sleepMediaItem.duration} | ${widget.sleepMediaItem.category!.name}",
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: mediumTextStyle.copyWith(
@@ -199,7 +187,7 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),
               child: Text(
-                widget.sleepMediaItem.description,
+                widget.sleepMediaItem.description.toString(),
                 style: TextStyle(
                   fontWeight: light,
                   height: 1.8,
@@ -226,7 +214,7 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                           width: 10,
                         ),
                         Text(
-                          "${widget.sleepMediaItem.totalFavorite} Favorits",
+                          "${widget.sleepMediaItem.totalFavorite} Favorites",
                           style: TextStyle(
                             fontWeight: medium,
                             fontSize: 14,
@@ -393,7 +381,7 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: sleepMediaList
-                  .where((item) => item.category.id == 2)
+                  .where((item) => item.category!.id == 2)
                   .toList()
                   .getRange(0, 4)
                   .toList()
@@ -416,10 +404,10 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                         }));
                       },
                       child: SleepCardItem(
-                        image: sleepMediaList[i].imgUrl,
-                        label: sleepMediaList[i].title,
+                        image: sleepMediaList[i].imgUrl.toString(),
+                        label: sleepMediaList[i].title.toString(),
                         subtitle:
-                            "${sleepMediaList[i].duration} | ${sleepMediaList[i].category.name}",
+                            "${sleepMediaList[i].duration} | ${sleepMediaList[i].category!.name}",
                       ),
                     ),
                   ),

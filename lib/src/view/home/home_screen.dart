@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sleep/src/themes.dart';
 import 'package:sleep/src/utils/responsive.dart';
 import 'package:sleep/src/view/details/detail_screen.dart';
-import 'package:sleep/src/view_models/media_view_model.dart';
+import 'package:sleep/src/view_models/home_view_model.dart';
 
 import '../../models/sleep_media_model.dart';
 import '../widgets/icon_menu.dart';
@@ -298,10 +298,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       }));
                                     },
                                     child: SleepCardItem(
-                                      image: sleepMediaDatas[i].imgUrl,
-                                      label: sleepMediaDatas[i].title,
+                                      image:
+                                          sleepMediaDatas[i].imgUrl.toString(),
+                                      label:
+                                          sleepMediaDatas[i].title.toString(),
                                       subtitle:
-                                          "${sleepMediaDatas[i].duration} | ${sleepMediaDatas[i].category.name}",
+                                          "${sleepMediaDatas[i].duration} | ${sleepMediaDatas[i].category!.name}",
                                     ),
                                   ),
                                 ),
@@ -547,10 +549,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                           }));
                                         },
                                         child: SleepCardItem(
-                                          image: sleepMediaDatas[i].imgUrl,
-                                          label: sleepMediaDatas[i].title,
+                                          image: sleepMediaDatas[i]
+                                              .imgUrl
+                                              .toString(),
+                                          label: sleepMediaDatas[i]
+                                              .title
+                                              .toString(),
                                           subtitle:
-                                              "${sleepMediaDatas[i].duration} | ${sleepMediaDatas[i].category.name}",
+                                              "${sleepMediaDatas[i].duration} | ${sleepMediaDatas[i].category!.name}",
                                         ),
                                       ),
                                     ),

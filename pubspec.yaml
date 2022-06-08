@@ -27,13 +27,15 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  audio_video_progress_bar: ^0.10.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_iconly: ^1.0.2
   flutter_native_splash: ^2.2.2
   just_audio: ^0.9.24
-  audio_video_progress_bar: ^0.10.0
+  just_audio_web: ^0.4.7
+  localstorage: ^4.0.0+1
   shimmer: ^2.0.0
 
 dev_dependencies:

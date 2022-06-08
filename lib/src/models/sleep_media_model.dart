@@ -1,12 +1,13 @@
 class SleepMediaItem {
-  final String title;
-  final SleepMediaCategory category;
-  final String duration;
-  final String imgUrl;
-  final String description;
-  final String mediaUrl;
-  final String totalFavorite;
-  final String totalListening;
+  String? title;
+  String? duration;
+  String? imgUrl;
+  String? description;
+  String? mediaUrl;
+  String? totalFavorite;
+  String? totalListening;
+  SleepMediaCategory? category;
+
   SleepMediaItem({
     required this.title,
     required this.category,
@@ -17,6 +18,32 @@ class SleepMediaItem {
     required this.totalFavorite,
     required this.totalListening,
   });
+
+  SleepMediaItem.fromJson(Map<String, dynamic> json) {
+    title = json["title"];
+    duration = json["duration"];
+    imgUrl = json["imgUrl"];
+    description = json["description"];
+    mediaUrl = json["mediaUrl"];
+    totalFavorite = json["totalFavorite"];
+    totalListening = json["totalListening"];
+    category = json["category"] == null
+        ? null
+        : SleepMediaCategory.fromJson(json["category"]);
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["title"] = title;
+    data["duration"] = duration;
+    data["imgUrl"] = imgUrl;
+    data["description"] = description;
+    data["mediaUrl"] = mediaUrl;
+    data["totalFavorite"] = totalFavorite;
+    data["totalListening"] = totalListening;
+    data["category"] = category!.toJson();
+    return data;
+  }
 }
 
 class SleepMediaCategory {
@@ -26,6 +53,16 @@ class SleepMediaCategory {
     required this.id,
     required this.name,
   });
+  SleepMediaCategory.fromJson(Map<String, dynamic> json) {
+    id = json["id"];
+    name = json["name"];
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    return data;
+  }
 }
 
 List<SleepMediaItem> sleepMediaList = [
