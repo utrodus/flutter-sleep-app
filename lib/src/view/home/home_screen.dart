@@ -642,10 +642,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "You Don't Have Favorite Stories & Music",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText2!
+                                      .headline4!
                                       .copyWith(
                                         fontWeight: light,
-                                        fontSize: 18,
                                       ),
                                 ),
                                 const SizedBox(
@@ -655,10 +654,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "Let's Add Stories & Music To Favorites",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText2!
+                                      .headline4!
                                       .copyWith(
                                         fontWeight: light,
-                                        fontSize: 18,
                                       ),
                                 ),
                               ],
