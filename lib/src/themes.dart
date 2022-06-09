@@ -103,16 +103,6 @@ class AppThemes {
         fontWeight: medium,
         color: kWhiteColor,
       ),
-      subtitle1: TextStyle(
-        fontSize: 14,
-        fontWeight: bold,
-        color: kWhiteColor,
-      ),
-      subtitle2: TextStyle(
-        fontSize: 12,
-        fontWeight: bold,
-        color: kWhiteColor,
-      ),
       bodyText1: TextStyle(
         fontSize: 15,
         fontWeight: regular,
