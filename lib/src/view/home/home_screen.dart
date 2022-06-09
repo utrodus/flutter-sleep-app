@@ -149,7 +149,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 60, 0, 20),
+                padding: selectedCategoryId == 4
+                    ? const EdgeInsets.only(top: 60)
+                    : const EdgeInsets.fromLTRB(0, 60, 0, 20),
                 child: Column(
                   children: [
                     Center(
@@ -166,6 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           style:
                               Theme.of(context).textTheme.bodyText1!.copyWith(
                                     height: 1.4,
+                                    fontSize: 17,
                                   ),
                           textAlign: TextAlign.center,
                         ),
@@ -284,8 +287,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: FadeInImage.assetNetwork(
                                   placeholder: "assets/image_placeholder.jpg",
                                   height: constraints.maxWidth > 600
-                                      ? screenHeight * 0.4
-                                      : screenHeight * 0.3,
+                                      ? screenHeight * 0.45
+                                      : screenHeight * 0.35,
                                   width: double.infinity,
                                   fit: BoxFit.cover,
                                   alignment: Alignment.centerLeft,
@@ -298,6 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         : screenHeight * 0.3,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
+                                    alignment: Alignment.center,
                                   ),
                                 ),
                               ),
@@ -313,7 +317,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           children: [
                             const SizedBox(
-                              height: 15,
+                              height: 30,
                             ),
                             const Image(
                               image:
@@ -323,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fit: BoxFit.contain,
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 15,
                             ),
                             Text(
                               "You Don't Have Favorite Stories & Music",
@@ -333,6 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .copyWith(
                                     fontWeight: medium,
                                     height: 1.4,
+                                    fontSize: 17,
                                   ),
                             ),
                             const SizedBox(
@@ -346,6 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .copyWith(
                                     fontWeight: medium,
                                     height: 1.4,
+                                    fontSize: 16,
                                   ),
                             ),
                           ],
@@ -521,7 +527,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: constraints.maxWidth > 1200
                         ? 1200
                         : constraints.maxWidth,
-                    padding: const EdgeInsets.fromLTRB(40, 60, 40, 20),
+                    padding: selectedCategoryId == 4
+                        ? const EdgeInsets.fromLTRB(40, 60, 40, 0)
+                        : const EdgeInsets.fromLTRB(40, 60, 40, 20),
                     child: Column(
                       children: [
                         Center(
@@ -591,7 +599,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: FadeInImage.assetNetwork(
                                       placeholder:
                                           "assets/image_placeholder.jpg",
-                                      height: screenHeight * 0.45,
+                                      height: screenHeight * 0.5,
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                       image:
@@ -599,7 +607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       imageErrorBuilder: (c, o, s) =>
                                           Image.asset(
                                         "assets/image_placeholder.jpg",
-                                        height: screenHeight * 0.45,
+                                        height: screenHeight * 0.5,
                                         width: double.infinity,
                                         fit: BoxFit.contain,
                                       ),
