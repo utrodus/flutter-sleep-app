@@ -2,24 +2,28 @@
 
 import 'package:sleep/src/models/sleep_media_model.dart';
 
+import '../models/sleep_media_source.dart';
+
 Future<List<SleepMediaItem>> getMediaDatas({int? categoryId}) {
   return Future.delayed(const Duration(seconds: 1), () {
     List<SleepMediaItem> filteredMedia = [];
     if (categoryId != null) {
       if (categoryId == 1) {
-        filteredMedia =
-            sleepMediaList.where((item) => item.category!.id == 1).toList();
+        filteredMedia = sleepMediaDataSource
+            .where((item) => item.category!.id == 1)
+            .toList();
         return filteredMedia;
       } else if (categoryId == 2) {
-        filteredMedia =
-            sleepMediaList.where((item) => item.category!.id == 2).toList();
+        filteredMedia = sleepMediaDataSource
+            .where((item) => item.category!.id == 2)
+            .toList();
         return filteredMedia;
       } else if (categoryId == 3) {
-        var storyList = sleepMediaList
+        var storyList = sleepMediaDataSource
             .where((item) => item.category!.id == 1)
             .toList()
             .getRange(0, 4);
-        var musicList = sleepMediaList
+        var musicList = sleepMediaDataSource
             .where((item) => item.category!.id == 2)
             .toList()
             .getRange(0, 4);
@@ -27,11 +31,11 @@ Future<List<SleepMediaItem>> getMediaDatas({int? categoryId}) {
         filteredMedia.addAll(musicList);
         return filteredMedia;
       } else if (categoryId == 4) {
-        var storyList = sleepMediaList
+        var storyList = sleepMediaDataSource
             .where((item) => item.category!.id == 1)
             .toList()
             .getRange(0, 2);
-        var musicList = sleepMediaList
+        var musicList = sleepMediaDataSource
             .where((item) => item.category!.id == 2)
             .toList()
             .getRange(0, 2);
@@ -40,6 +44,6 @@ Future<List<SleepMediaItem>> getMediaDatas({int? categoryId}) {
         return filteredMedia;
       }
     }
-    return sleepMediaList;
+    return sleepMediaDataSource;
   });
 }
