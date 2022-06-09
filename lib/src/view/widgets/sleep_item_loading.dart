@@ -38,8 +38,8 @@ Padding sleepItemLoading(BuildContext context) {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  height: MediaQuery.of(context).size.height * 0.01,
+                  margin: const EdgeInsets.only(top: 7),
+                  height: MediaQuery.of(context).size.height * 0.008,
                   width: MediaQuery.of(context).size.width * 0.1,
                   decoration: BoxDecoration(
                     color: Colors.grey,
