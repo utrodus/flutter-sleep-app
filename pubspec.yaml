@@ -35,7 +35,7 @@ dependencies:
   flutter_native_splash: ^2.2.2
   just_audio: ^0.9.24
   just_audio_web: ^0.4.7
-  localstorage: ^4.0.0+1
+  shared_preferences: ^2.0.15
   shimmer: ^2.0.0
 
 dev_dependencies:
