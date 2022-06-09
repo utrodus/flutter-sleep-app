@@ -272,7 +272,6 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                                         isFavorited
                                             ? IconlyBold.heart
                                             : IconlyLight.heart,
-                                        size: 33,
                                         color: const Color(0xffE55871),
                                       )),
                                 ),
@@ -322,28 +321,29 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            IconlyBold.heart,
-                            size: 18,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          IconlyBold.heart,
+                          size: 18,
+                          color: kprimaryTextColor,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "${widget.sleepMediaItem.totalFavorite} Favorites",
+                          style: TextStyle(
+                            fontWeight: medium,
+                            fontSize: 14,
                             color: kprimaryTextColor,
                           ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "${widget.sleepMediaItem.totalFavorite} Favorites",
-                            style: TextStyle(
-                              fontWeight: medium,
-                              fontSize: 14,
-                              color: kprimaryTextColor,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 20,
                     ),
                     Expanded(
                       child: Row(
@@ -357,12 +357,14 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text(
-                            "${widget.sleepMediaItem.totalListening} Listening",
-                            style: TextStyle(
-                              fontWeight: medium,
-                              fontSize: 14,
-                              color: kprimaryTextColor,
+                          Flexible(
+                            child: Text(
+                              "${widget.sleepMediaItem.totalListening} Listening",
+                              style: TextStyle(
+                                fontWeight: medium,
+                                fontSize: 14,
+                                color: kprimaryTextColor,
+                              ),
                             ),
                           ),
                         ],
