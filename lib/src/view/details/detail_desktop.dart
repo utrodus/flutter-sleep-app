@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:sleep/src/utils/prefs_data.dart';
 
 import '../../models/progress_bar_model.dart';
 import '../../models/sleep_media_model.dart';
 import '../../themes.dart';
+import '../../models/sleep_media_source.dart';
 import '../../view_models/detail_view_model.dart';
 import '../widgets/sleep_card_item.dart';
 import 'detail_screen.dart';
@@ -36,12 +40,15 @@ class DetailDesktopContent extends StatefulWidget {
 class _DetailDesktopContentState extends State<DetailDesktopContent> {
   late final DetailViewModel _detailViewModel;
   bool isFavorited = false;
+  List<SleepMediaItem> items = [];
+  List<String> favoriteItems = [];
 
   @override
   void initState() {
     super.initState();
     DetailViewModel.url = widget.sleepMediaItem.mediaUrl.toString();
     _detailViewModel = DetailViewModel();
+    initData();
   }
 
   @override
@@ -50,18 +57,83 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
     super.dispose();
   }
 
-  void addToFavorite() {
+  void initData() {
     setState(() {
-      isFavorited = !isFavorited;
+      /// Get data from local storage
+      var data = PrefsData.getData('datas');
+      data.then((value) {
+        /// if data not empty
+        if (value != null) {
+          if (value != []) {
+            /// assign  data to favoriteItems
+            favoriteItems = value;
+            for (var data in favoriteItems) {
+              /// assign items data
+              items.add(SleepMediaItem.fromJson(json.decode(data)));
+            }
+
+            /// check if item is favorited
+            var myListFiltered =
+                items.where((e) => e.title == widget.sleepMediaItem.title);
+            if (myListFiltered.isNotEmpty) {
+              setState(() {
+                isFavorited = true;
+              });
+            }
+          }
+        }
+      });
     });
+  }
+
+  void addToFavorite() {
+    /// check if item is favorited
+    var findItems = items.where((e) => e.title == widget.sleepMediaItem.title);
+    if (findItems.isNotEmpty) {
+      setState(() {
+        items.remove(findItems.first);
+        widget.sleepMediaItem.isFavorited = false;
+        isFavorited = false;
+      });
+      if (items.isEmpty) {
+        PrefsData.saveData('datas', []);
+      } else {
+        List<String> tempData = [];
+        setState(() {
+          favoriteItems = [];
+          for (var item in items) {
+            tempData.add(json.encode(item));
+          }
+          favoriteItems = tempData;
+        });
+
+        PrefsData.saveData('datas', favoriteItems);
+      }
+    }
+
+    /// if item not favorited
+    else {
+      setState(() {
+        isFavorited = true;
+      });
+      List<String> tempData = [];
+      widget.sleepMediaItem.isFavorited = true;
+      items.add(widget.sleepMediaItem);
+      for (var item in items) {
+        tempData.add(json.encode(item));
+      }
+      favoriteItems = tempData;
+      PrefsData.saveData('datas', favoriteItems);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
+        _detailViewModel.dispose();
         Navigator.pop(context);
-        return false;
+        return true;
       },
       child: Scaffold(
         backgroundColor: kPrimaryColor,
@@ -427,7 +499,7 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                       GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: sleepMediaList
+                        itemCount: sleepMediaDataSource
                             .where((item) => item.category!.id == 2)
                             .toList()
                             .getRange(0, 4)
@@ -446,15 +518,17 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                                     return DetailScreen(
                                       heroTagName: "detail_img_$i",
                                       isRelated: false,
-                                      sleepMediaItem: sleepMediaList[i],
+                                      sleepMediaItem: sleepMediaDataSource[i],
                                     );
                                   }));
                                 },
                                 child: SleepCardItem(
-                                  image: sleepMediaList[i].imgUrl.toString(),
-                                  label: sleepMediaList[i].title.toString(),
+                                  image:
+                                      sleepMediaDataSource[i].imgUrl.toString(),
+                                  label:
+                                      sleepMediaDataSource[i].title.toString(),
                                   subtitle:
-                                      "${sleepMediaList[i].duration} | ${sleepMediaList[i].category!.name}",
+                                      "${sleepMediaDataSource[i].duration} | ${sleepMediaDataSource[i].category!.name}",
                                 ),
                               ),
                             ),
