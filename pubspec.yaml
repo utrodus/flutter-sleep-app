@@ -32,7 +32,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_iconly: ^1.0.2
-  flutter_native_splash: ^2.2.2
   just_audio: ^0.9.24
   just_audio_web: ^0.4.7
   shared_preferences: ^2.0.15
@@ -59,3 +58,4 @@ flutter:
           weight: 500
         - asset: assets/Roboto-Bold.ttf
           weight: 700
+
