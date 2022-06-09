@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:sleep/src/utils/globals.dart';
 
 import '../models/progress_bar_model.dart';
 
@@ -19,6 +20,12 @@ class DetailViewModel {
   late AudioPlayer _audioPlayer;
   DetailViewModel() {
     _init();
+  }
+  showSnackbar(String message) {
+    return SnackBar(
+      content: Text(message),
+      backgroundColor: Colors.black87,
+    );
   }
 
   void _init() async {
@@ -71,24 +78,43 @@ class DetailViewModel {
           total: totalDuration ?? Duration.zero,
         );
       });
-      // ignore: empty_catches
-    } catch (e) {}
+    } catch (e) {
+      snackbarKey.currentState?.showSnackBar(showSnackbar(e.toString()));
+    }
   }
 
   void play() {
-    _audioPlayer.play();
+    try {
+      _audioPlayer.play();
+      snackbarKey.currentState?.showSnackBar(showSnackbar("Playing"));
+    } catch (e) {
+      snackbarKey.currentState?.showSnackBar(showSnackbar(e.toString()));
+    }
   }
 
   void pause() {
-    _audioPlayer.pause();
+    try {
+      _audioPlayer.pause();
+      snackbarKey.currentState?.showSnackBar(showSnackbar("Paused"));
+    } catch (e) {
+      snackbarKey.currentState?.showSnackBar(showSnackbar(e.toString()));
+    }
   }
 
   void seek(Duration position) {
-    _audioPlayer.seek(position);
+    try {
+      _audioPlayer.seek(position);
+    } catch (e) {
+      snackbarKey.currentState?.showSnackBar(showSnackbar(e.toString()));
+    }
   }
 
   void dispose() {
-    _audioPlayer.dispose();
-    _audioPlayer.stop();
+    try {
+      _audioPlayer.dispose();
+      _audioPlayer.stop();
+    } catch (e) {
+      snackbarKey.currentState?.showSnackBar(showSnackbar(e.toString()));
+    }
   }
 }

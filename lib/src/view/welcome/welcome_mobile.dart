@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../themes.dart';
+import '../../utils/globals.dart';
 import '../home/home_screen.dart';
 import '../widgets/primary_btn.dart';
 
@@ -59,6 +60,12 @@ Scaffold welcomeMobile(BuildContext context, double screenWidth) {
                 child: PrimaryBtn(
                   label: "GET STARTED",
                   onPressed: () {
+                    snackbarKey.currentState?.showSnackBar(const SnackBar(
+                      content: Text("Welcome to Sleep App!  ❤🤗"),
+                      behavior: SnackBarBehavior.floating,
+                      duration: Duration(seconds: 2),
+                      backgroundColor: Color(0xff3253BD),
+                    ));
                     Navigator.pushAndRemoveUntil(context,
                         MaterialPageRoute(builder: (context) {
                       return const HomeScreen();
