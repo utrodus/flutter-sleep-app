@@ -25,6 +25,7 @@ class DetailViewModel {
     return SnackBar(
       content: Text(message),
       backgroundColor: Colors.black87,
+      duration: const Duration(seconds: 1),
     );
   }
 
@@ -111,8 +112,9 @@ class DetailViewModel {
 
   void dispose() {
     try {
-      _audioPlayer.dispose();
+      _audioPlayer.pause();
       _audioPlayer.stop();
+      _audioPlayer.dispose();
     } catch (e) {
       snackbarKey.currentState?.showSnackBar(showSnackbar(e.toString()));
     }
