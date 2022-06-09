@@ -9,6 +9,7 @@ import '../../models/progress_bar_model.dart';
 import '../../models/sleep_media_model.dart';
 import '../../themes.dart';
 import '../../models/sleep_media_source.dart';
+import '../../utils/globals.dart';
 import '../../view_models/detail_view_model.dart';
 import '../widgets/sleep_card_item.dart';
 import 'detail_screen.dart';
@@ -91,13 +92,28 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
     var findItems = items.where((e) => e.title == widget.sleepMediaItem.title);
     if (findItems.isNotEmpty) {
       setState(() {
+        /// remove current item from favorites list
         items.remove(findItems.first);
         widget.sleepMediaItem.isFavorited = false;
         isFavorited = false;
       });
       if (items.isEmpty) {
+        /// if items is empty, remove item from local storage
         PrefsData.saveData('datas', []);
+        snackbarKey.currentState?.showSnackBar(SnackBar(
+          content: Text(
+            "You have removed this item from favorites",
+            style: TextStyle(
+              fontWeight: bold,
+              fontSize: 16,
+            ),
+          ),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 2),
+          backgroundColor: const Color(0xffE74C3C),
+        ));
       } else {
+        /// remove current item from favorites local storage
         List<String> tempData = [];
         setState(() {
           favoriteItems = [];
@@ -108,10 +124,22 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
         });
 
         PrefsData.saveData('datas', favoriteItems);
+        snackbarKey.currentState?.showSnackBar(SnackBar(
+          content: Text(
+            "You have removed this item from favorites",
+            style: TextStyle(
+              fontWeight: bold,
+              fontSize: 16,
+            ),
+          ),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 2),
+          backgroundColor: const Color(0xffE74C3C),
+        ));
       }
     }
 
-    /// if item not favorited
+    /// if item not found from favorited local storage
     else {
       setState(() {
         isFavorited = true;
@@ -124,6 +152,18 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
       }
       favoriteItems = tempData;
       PrefsData.saveData('datas', favoriteItems);
+      snackbarKey.currentState?.showSnackBar(SnackBar(
+        content: Text(
+          "You have added this item to favorites",
+          style: TextStyle(
+            fontWeight: bold,
+            fontSize: 16,
+          ),
+        ),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 2),
+        backgroundColor: const Color(0xff519727),
+      ));
     }
   }
 
@@ -155,6 +195,44 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
                   alignment: Alignment.center,
                   child: Column(
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 20, 15, 30),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          child: InkWell(
+                            onTap: () {
+                              _detailViewModel.dispose();
+                              Navigator.pop(context);
+                            },
+                            child: Row(
+                              children: [
+                                Material(
+                                  color: kWhiteColor,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(100)),
+                                  child: InkWell(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(100)),
+                                    child: IconButton(
+                                        alignment: Alignment.center,
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(
+                                          IconlyLight.arrowLeft,
+                                          color: kPrimaryColor,
+                                        )),
+                                  ),
+                                ),
+                                const SizedBox(width: 20),
+                                Text("Back To Home",
+                                    style:
+                                        Theme.of(context).textTheme.headline3),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                       Container(
                         padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                         color: Colors.black12,
