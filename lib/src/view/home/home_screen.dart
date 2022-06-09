@@ -219,6 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
                                   totalFavorite: "2000.000",
                                   totalListening: "50.000",
+                                  isFavorited: false,
                                 ),
                               );
                             }));
@@ -472,6 +473,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
                                       totalFavorite: "2000.000",
                                       totalListening: "50.000",
+                                      isFavorited: false,
                                     ),
                                   );
                                 }));
