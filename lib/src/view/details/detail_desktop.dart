@@ -73,9 +73,9 @@ class _DetailDesktopContentState extends State<DetailDesktopContent> {
             }
 
             /// check if item is favorited
-            var myListFiltered =
+            var findItems =
                 items.where((e) => e.title == widget.sleepMediaItem.title);
-            if (myListFiltered.isNotEmpty) {
+            if (findItems.isNotEmpty) {
               setState(() {
                 isFavorited = true;
               });

@@ -68,9 +68,9 @@ class _DetailMobileTabletContentState extends State<DetailMobileTabletContent> {
             }
 
             /// check if item is favorited
-            var myListFiltered =
+            var findItems =
                 items.where((e) => e.title == widget.sleepMediaItem.title);
-            if (myListFiltered.isNotEmpty) {
+            if (findItems.isNotEmpty) {
               setState(() {
                 isFavorited = true;
               });
