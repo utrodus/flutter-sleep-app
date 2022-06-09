@@ -10,8 +10,9 @@ import '../widgets/sleep_card_item.dart';
 import '../widgets/sleep_item_loading.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
+  const HomeScreen({
+    Key? key,
+  }) : super(key: key);
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -19,6 +20,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late ScrollController _scrollController;
   List<SleepMediaItem> sleepMediaDatas = [];
+  String title = "";
+  String subtitle = "";
   bool isLoading = false;
   int selectedCategoryId = 0;
   void getSleepMediaDatas() {
@@ -46,8 +49,49 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void changePageText(id) {
+    switch (id) {
+      case 0:
+        setState(() {
+          title = "Sleep Stories & Music";
+          subtitle = "Best Sleep Stories and Music\nfrom the Sleep Community";
+        });
+        break;
+      case 1:
+        setState(() {
+          title = "A Bedtime Story";
+          subtitle =
+              "Discover stories that will help you fall\ninto a deep and natural sleep";
+        });
+        break;
+      case 2:
+        setState(() {
+          title = "Sleep Music";
+          subtitle =
+              "Sleep Music is a collection of songs that\nwill help you fall into a deep and natural sleep";
+        });
+        break;
+      case 3:
+        setState(() {
+          title = "Are You Anxious ?";
+          subtitle =
+              "We Help you to find the best sleep stories\nand music for your anxiety";
+        });
+        break;
+      case 4:
+        setState(() {
+          title = "My Favorite";
+          subtitle =
+              "Add your favorite sleep stories and music to your Sleep App";
+        });
+        break;
+      default:
+    }
+  }
+
   @override
   void initState() {
+    changePageText(0);
     getSleepMediaDatas();
     _scrollController = ScrollController();
     super.initState();
@@ -110,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Center(
                       child: Text(
-                        "Sleep Stories & Music",
+                        title,
                         style: Theme.of(context).textTheme.headline1,
                       ),
                     ),
@@ -118,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.fromLTRB(48, 15, 48, 15),
                       child: Center(
                         child: Text(
-                          "Soothing bedtime stories to help you fall\ninto a deep and natural sleep",
+                          subtitle,
                           style:
                               Theme.of(context).textTheme.bodyText1!.copyWith(
                                     height: 1.4,
@@ -139,6 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() {
                                 selectedCategoryId = 0;
                               });
+                              changePageText(selectedCategoryId);
                             },
                             icon: "assets/icon_menu_all.png",
                             label: "All",
@@ -150,6 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() {
                                 selectedCategoryId = 4;
                               });
+                              changePageText(selectedCategoryId);
                             },
                             icon: "assets/icon_menu_favorite.png",
                             label: "My",
@@ -161,6 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() {
                                 selectedCategoryId = 1;
                               });
+                              changePageText(selectedCategoryId);
                             },
                             icon: "assets/icon_menu_sleep.png",
                             label: "Stories",
@@ -172,6 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() {
                                 selectedCategoryId = 2;
                               });
+                              changePageText(selectedCategoryId);
                             },
                             icon: "assets/icon_menu_music.png",
                             label: "Music",
@@ -183,6 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() {
                                 selectedCategoryId = 3;
                               });
+                              changePageText(selectedCategoryId);
                             },
                             icon: "assets/icon_menu_anxious.png",
                             label: "Anxious",
@@ -194,58 +243,62 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 25,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          splashFactory: NoSplash.splashFactory,
-                          onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return DetailScreen(
-                                heroTagName: "feature_img",
-                                isRelated: false,
-                                sleepMediaItem: SleepMediaItem(
-                                  title: "Mencari Kebahagiaan",
-                                  category: SleepMediaCategory(
-                                      id: 1, name: "Sleep Stories"),
-                                  duration: "01:00",
-                                  imgUrl:
-                                      "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
-                                  description:
-                                      "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
-                                  mediaUrl:
-                                      "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
-                                  totalFavorite: "2000.000",
-                                  totalListening: "50.000",
-                                  isFavorited: false,
-                                ),
-                              );
-                            }));
-                          },
-                          child: Hero(
-                            transitionOnUserGestures: true,
-                            tag: "feature_img",
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                              child: FadeInImage.assetNetwork(
-                                placeholder: "assets/image_placeholder.jpg",
-                                height: constraints.maxWidth > 600
-                                    ? screenHeight * 0.4
-                                    : screenHeight * 0.3,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                                image:
-                                    "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
-                                imageErrorBuilder: (c, o, s) => Image.asset(
-                                  "assets/image_placeholder.jpg",
+                    Visibility(
+                      visible: selectedCategoryId == 0,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashFactory: NoSplash.splashFactory,
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DetailScreen(
+                                  heroTagName: "feature_img",
+                                  isRelated: false,
+                                  sleepMediaItem: SleepMediaItem(
+                                    title: "Mencari Kebahagiaan",
+                                    category: SleepMediaCategory(
+                                        id: 1, name: "Sleep Stories"),
+                                    duration: "01:00",
+                                    imgUrl:
+                                        "https://i.ibb.co/3pp9F4s/maxresdefault-1.jpg",
+                                    description:
+                                        "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
+                                    mediaUrl:
+                                        "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
+                                    totalFavorite: "2000.000",
+                                    totalListening: "50.000",
+                                    isFavorited: false,
+                                  ),
+                                );
+                              }));
+                            },
+                            child: Hero(
+                              transitionOnUserGestures: true,
+                              tag: "feature_img",
+                              child: ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                                child: FadeInImage.assetNetwork(
+                                  placeholder: "assets/image_placeholder.jpg",
                                   height: constraints.maxWidth > 600
                                       ? screenHeight * 0.4
                                       : screenHeight * 0.3,
                                   width: double.infinity,
                                   fit: BoxFit.cover,
+                                  alignment: Alignment.centerLeft,
+                                  image:
+                                      "https://i.ibb.co/3pp9F4s/maxresdefault-1.jpg",
+                                  imageErrorBuilder: (c, o, s) => Image.asset(
+                                    "assets/image_placeholder.jpg",
+                                    height: constraints.maxWidth > 600
+                                        ? screenHeight * 0.4
+                                        : screenHeight * 0.3,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
@@ -253,10 +306,54 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
+                    Visibility(
+                        visible: selectedCategoryId == 4 &&
+                            sleepMediaDatas.isEmpty &&
+                            isLoading == false,
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            const Image(
+                              image:
+                                  AssetImage("assets/ilustration_people.png"),
+                              alignment: Alignment.center,
+                              width: 300,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "You Don't Have Favorite Stories & Music",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .copyWith(
+                                    fontWeight: medium,
+                                    height: 1.4,
+                                  ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Let's Add Stories & Music To Favorites",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .copyWith(
+                                    fontWeight: medium,
+                                    height: 1.4,
+                                  ),
+                            ),
+                          ],
+                        )),
                     const SizedBox(
                       height: 25,
                     ),
-                    isLoading
+                    isLoading && selectedCategoryId != 4
                         ? GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -350,6 +447,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     setState(() {
                       selectedCategoryId = 0;
                     });
+                    changePageText(selectedCategoryId);
                   },
                   icon: "assets/icon_menu_all.png",
                   label: "All",
@@ -361,6 +459,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     setState(() {
                       selectedCategoryId = 4;
                     });
+                    changePageText(selectedCategoryId);
                   },
                   icon: "assets/icon_menu_favorite.png",
                   label: "My",
@@ -372,6 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     setState(() {
                       selectedCategoryId = 1;
                     });
+                    changePageText(selectedCategoryId);
                   },
                   icon: "assets/icon_menu_sleep.png",
                   label: "Stories",
@@ -383,6 +483,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     setState(() {
                       selectedCategoryId = 2;
                     });
+                    changePageText(selectedCategoryId);
                   },
                   icon: "assets/icon_menu_music.png",
                   label: "Music",
@@ -394,6 +495,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     setState(() {
                       selectedCategoryId = 3;
                     });
+                    changePageText(selectedCategoryId);
                   },
                   icon: "assets/icon_menu_anxious.png",
                   label: "Anxious",
@@ -424,7 +526,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Center(
                           child: Text(
-                            "Sleep Stories & Music",
+                            title,
                             style:
                                 Theme.of(context).textTheme.headline1!.copyWith(
                                       fontSize: 32,
@@ -436,7 +538,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Center(
                           child: Text(
-                            "Soothing bedtime stories to help you fall\ninto a deep and natural sleep",
+                            subtitle,
                             style:
                                 Theme.of(context).textTheme.bodyText1!.copyWith(
                                       height: 1.4,
@@ -448,54 +550,59 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 40,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              splashFactory: NoSplash.splashFactory,
-                              onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return DetailScreen(
-                                    heroTagName: "feature_img",
-                                    isRelated: false,
-                                    sleepMediaItem: SleepMediaItem(
-                                      title: "Mencari Kebahagiaan",
-                                      category: SleepMediaCategory(
-                                          id: 1, name: "Sleep Stories"),
-                                      duration: "01:00",
-                                      imgUrl:
-                                          "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
-                                      description:
-                                          "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
-                                      mediaUrl:
-                                          "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
-                                      totalFavorite: "2000.000",
-                                      totalListening: "50.000",
-                                      isFavorited: false,
-                                    ),
-                                  );
-                                }));
-                              },
-                              child: Hero(
-                                transitionOnUserGestures: true,
-                                tag: "feature_img",
-                                child: ClipRRect(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                  child: FadeInImage.assetNetwork(
-                                    placeholder: "assets/image_placeholder.jpg",
-                                    height: screenHeight * 0.45,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                    image:
-                                        "https://i.ibb.co/jr2P6YZ/maxresdefault-1.jpg",
-                                    imageErrorBuilder: (c, o, s) => Image.asset(
-                                      "assets/image_placeholder.jpg",
+                        Visibility(
+                          visible: selectedCategoryId == 0,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                splashFactory: NoSplash.splashFactory,
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return DetailScreen(
+                                      heroTagName: "feature_img",
+                                      isRelated: false,
+                                      sleepMediaItem: SleepMediaItem(
+                                        title: "Mencari Kebahagiaan",
+                                        category: SleepMediaCategory(
+                                            id: 1, name: "Sleep Stories"),
+                                        duration: "01:00",
+                                        imgUrl:
+                                            "https://i.ibb.co/3pp9F4s/maxresdefault-1.jpg",
+                                        description:
+                                            "Hidup Yang Bahagia Adalah Hidup Yang sederhana.",
+                                        mediaUrl:
+                                            "https://archive.org/download/mencari-kebahagiaan-dr-fahrudin-faiz/Mencari%20Kebahagiaan%20%20Dr%20Fahrudin%20Faiz.mp3",
+                                        totalFavorite: "2000.000",
+                                        totalListening: "50.000",
+                                        isFavorited: false,
+                                      ),
+                                    );
+                                  }));
+                                },
+                                child: Hero(
+                                  transitionOnUserGestures: true,
+                                  tag: "feature_img",
+                                  child: ClipRRect(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10)),
+                                    child: FadeInImage.assetNetwork(
+                                      placeholder:
+                                          "assets/image_placeholder.jpg",
                                       height: screenHeight * 0.45,
                                       width: double.infinity,
                                       fit: BoxFit.cover,
+                                      image:
+                                          "https://i.ibb.co/3pp9F4s/maxresdefault-1.jpg",
+                                      imageErrorBuilder: (c, o, s) =>
+                                          Image.asset(
+                                        "assets/image_placeholder.jpg",
+                                        height: screenHeight * 0.45,
+                                        width: double.infinity,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -503,10 +610,55 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
+                        Visibility(
+                            visible: selectedCategoryId == 4 &&
+                                sleepMediaDatas.isEmpty &&
+                                isLoading == false,
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                Image(
+                                  image: const AssetImage(
+                                      "assets/ilustration_people.png"),
+                                  alignment: Alignment.center,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.25,
+                                  fit: BoxFit.contain,
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                Text(
+                                  "You Don't Have Favorite Stories & Music",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2!
+                                      .copyWith(
+                                        fontWeight: light,
+                                        fontSize: 18,
+                                      ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Let's Add Stories & Music To Favorites",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2!
+                                      .copyWith(
+                                        fontWeight: light,
+                                        fontSize: 18,
+                                      ),
+                                ),
+                              ],
+                            )),
                         const SizedBox(
                           height: 40,
                         ),
-                        isLoading
+                        isLoading && selectedCategoryId != 4
                             ? GridView.builder(
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
