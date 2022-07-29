@@ -23,12 +23,11 @@ Great collection of high-definition sounds that can be mixed into relaxing ambia
 - flutter_iconly : [link](https://pub.dev/packages/flutter_iconly)
 
 **Fonts**
-
 - Roboto [link](https://fonts.google.com/specimen/Roboto?query=roboto)
 
 #### Final Submission from course [Belajar Membuat Aplikasi Flutter untuk Pemula](https://www.dicoding.com/academies/159).
-#### [My Certificate](https://www.dicoding.com/certificates/1OP8L5YN8ZQK) : 
-![sertifikat kelulusan](https://i.ibb.co/5Y0wxQx/Screenshot-1.png)
+#### [My Certificate](https://www.dicoding.com/certificates/0LZ019MYKP65) : 
+![certificate flutter pemula](https://user-images.githubusercontent.com/24326642/181682739-112c0aa8-f995-4130-aecb-4064283af8ba.png)
 
 ### Contact Info
 - Github : [![GitHub followers](https://img.shields.io/github/followers/utrodus.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/utrodus?tab=followers) 
@@ -39,4 +38,4 @@ Great collection of high-definition sounds that can be mixed into relaxing ambia
 
 ---
 
-###### tags: `Flutter` `Ui App` `Dicoding Indonesia` `Doctor Appointment` `health care`
+###### tags: `Flutter` `Ui App` `Dicoding Indonesia` `Sleep App` `meditation app`
