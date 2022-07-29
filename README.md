@@ -10,7 +10,7 @@ Stream Great collection of high-definition sounds that can be mixed into relaxin
 - Add sound to favorites
 - Reusable Widgets
 
-** 📦 Packages Used :**
+**📦 Packages Used :**
 - just_audio : [🔗](https://pub.dev/packages/just_audio)
 - audio_video_progress_bar [🔗](https://pub.dev/packages/audio_video_progress_bar)
 - just_audio_web : [🔗](https://pub.dev/packages/just_audio_web)
