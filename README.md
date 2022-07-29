@@ -8,13 +8,13 @@ Great collection of high-definition sounds that can be mixed into relaxing ambia
 ### Features : 
 - Using Flutter 3.0.1
 - MVVM Pattern
-- Stream audio sources
+- Stream audio sources (url)
 - Responsive design 
 - Build for Android, iOS, Web
 - Add sound to favorites
 - Reusable Widgets
 
-**Packages we are using :**
+**Packages Used :**
 - just_audio : [link](https://pub.dev/packages/just_audio)
 - audio_video_progress_bar [link](https://pub.dev/packages/audio_video_progress_bar)
 - just_audio_web : [link](https://pub.dev/packages/just_audio_web)
@@ -24,7 +24,7 @@ Great collection of high-definition sounds that can be mixed into relaxing ambia
 
 **Fonts**
 
-- Poppins [link](https://fonts.google.com/specimen/Poppins)
+- Roboto [link](https://fonts.google.com/specimen/Roboto?query=roboto)
 
 #### Final Submission from course [Belajar Membuat Aplikasi Flutter untuk Pemula](https://www.dicoding.com/academies/159).
 #### [My Certificate](https://www.dicoding.com/certificates/1OP8L5YN8ZQK) : 
