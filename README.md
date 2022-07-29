@@ -4,8 +4,6 @@ Stream Great collection of high-definition sounds that can be mixed into relaxin
 ### Results:
 [Mobile](https://user-images.githubusercontent.com/24326642/181683150-56d0900b-143a-4810-97ce-4022576a536b.webm)
 
-[Web](https://user-images.githubusercontent.com/24326642/181690937-37edcdb8-7b12-4099-9824-fa29167b24c1.webm)
-
 [Responsive-Web](https://user-images.githubusercontent.com/24326642/181690203-a2138b36-7b5d-4d06-85cd-4f5989c0e67c.webm)
 
 ### Features : 
