@@ -11,15 +11,15 @@ Stream Great collection of high-definition sounds that can be mixed into relaxin
 - Reusable Widgets
 
 **Packages Used :**
-- just_audio : [link](https://pub.dev/packages/just_audio)
-- audio_video_progress_bar [link](https://pub.dev/packages/audio_video_progress_bar)
-- just_audio_web : [link](https://pub.dev/packages/just_audio_web)
-- shared_preferences [link](https://pub.dev/packages/shared_preferences)
-- shimmer [link](https://pub.dev/packages/shimmer)
-- flutter_iconly : [link](https://pub.dev/packages/flutter_iconly)
+- just_audio : [🔗](https://pub.dev/packages/just_audio)
+- audio_video_progress_bar [🔗](https://pub.dev/packages/audio_video_progress_bar)
+- just_audio_web : [🔗](https://pub.dev/packages/just_audio_web)
+- shared_preferences [🔗](https://pub.dev/packages/shared_preferences)
+- shimmer [🔗](https://pub.dev/packages/shimmer)
+- flutter_iconly : [🔗](https://pub.dev/packages/flutter_iconly)
 
 **Fonts**
-- Roboto [link](https://fonts.google.com/specimen/Roboto?query=roboto)
+- Roboto [🔗](https://fonts.google.com/specimen/Roboto?query=roboto)
 
 ### Results (Mobile & Web):
 [Mobile](https://user-images.githubusercontent.com/24326642/181683150-56d0900b-143a-4810-97ce-4022576a536b.webm)
