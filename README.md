@@ -3,7 +3,7 @@ Multiplatform App Built with Flutter.
 Great collection of high-definition sounds that can be mixed into relaxing ambiances
 
 ### Results:
-![enter image description here](https://media.giphy.com/media/53zeIyPdnbCSqHSEX8/giphy.gif)
+
 
 ### Features : 
 - Using Flutter 3.0.1
@@ -16,6 +16,10 @@ Great collection of high-definition sounds that can be mixed into relaxing ambia
 
 **Packages we are using :**
 - just_audio : [link](https://pub.dev/packages/just_audio)
+- audio_video_progress_bar [link](https://pub.dev/packages/audio_video_progress_bar)
+- just_audio_web : [link](https://pub.dev/packages/just_audio_web)
+- shared_preferences [link](https://pub.dev/packages/shared_preferences)
+- shimmer [link](https://pub.dev/packages/shimmer)
 - flutter_iconly : [link](https://pub.dev/packages/flutter_iconly)
 
 **Fonts**
