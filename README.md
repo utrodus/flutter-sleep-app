@@ -1,5 +1,8 @@
+![cover image sleep app](https://res.cloudinary.com/dvhxdwwld/image/upload/v1660028418/cover-sleep_upqdhc.png)
+
 ## Flutter Sleep App (Dicoding Submission : Learn to Make Flutter Apps for Beginners)
-Stream Great collection of high-definition sounds that can be mixed into relaxing ambiances
+Stream Great collection of high-definition sounds that can be mixed into relaxing ambiance
+
 
 ### 🎯 Results (Mobile & Web):
 [Mobile](https://user-images.githubusercontent.com/24326642/181683150-56d0900b-143a-4810-97ce-4022576a536b.webm)
